@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>我的项目</title>
+  <style>
+    body {
+      background-image: url('img/background.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      color: white;
+    }
+    .project-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: rgba(135, 206, 235, 0.5);
+    }
+    .project-item img {
+      width: 100px;
+      height: 100px;
+      margin-right: 20px;
+    }
+    .project-item h3 {
+      margin: 0;
+    }
+    .project-info {
+      display: flex;
+      flex-direction: column;
+    }
+    .project-info p {
+      margin: 0;
+    }
+    #one {
+      text-align: center;
+    }
+    ul.pagination {
+      display: inline-block;
+      padding: 0;
+      margin: 0;
+    }
+    ul.pagination li {
+      display: inline;
+    }
+    ul.pagination li a {
+      color: black;
+      float: left;
+      padding: 8px 16px;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+    ul.pagination li a.active {
+      background-color: #4CAF50;
+      color: white;
+      border-radius: 5px;
+    }
+    ul.pagination li a:hover:not(.active) {
+      background-color: #ddd;
+    }
+    #en {
+      text-align: center;
+      background-size: auto;
+      background-color: white;
+    }
+  </style>
+</head>
+<body>
+  <h1 id="one">我的项目#1</h1><hr size="10px" color="black" />
+  <ul>
+    <!--
+    格式：
+    <li class="project-item">
+      <img src="img/GoSpider.jpeg" alt="项目1">
+      <div class="project-info">
+        <a href="">网络数据抓取工具</a>
+        <p>作者: ES</p>
+        <p>发表时间: 2024/11/23</p>
+        <p>编程语言: Python</p>
+      </div>
+    </li>
+    -->
+    <li class="project-item">
+      <img src="img/GoSpider.jpeg" alt="项目1">
+      <div class="project-info">
+        <a href="gospider.html">GoSpider</a>
+        <p>作者: ES</p>
+        <p>发表时间: 2024/11/23</p>
+        <p>编程语言: Python</p>
+        <p>简介: 爬取网页源码，可以使用正则表达来找到数据。适合新手来练习爬虫</pb>
+      </div>
+    </li>
+    <li class="project-item">
+      <img src="img/None.jpg" alt="项目2">
+      <div class="project-info">
+        <a href="encryption.html">加密程序</a>
+        <p>作者: ES</p>
+        <p>发表时间: 2024/11/23</p>
+        <p>编程语言: Python</p>
+        <p>简介: 可以进行对信息的加密并添加加密密码，安全系数很高</p>
+      </div>
+    </li>
+    <li class="project-item">
+      <img src="img/making.jpeg" alt="项目2">
+      <div class="project-info">
+        <h3>开发中...</h3>
+        <p>作者: ES</p>
+        <p>发表时间: </p>
+        <p>编程语言: </p>
+        <p>简介: 这是一个正在开发中的项目。</p>
+      </div>
+    </li>
+    <li class="project-item">
+      <img src="img/making.jpeg" alt="项目2">
+      <div class="project-info">
+        <h3>开发中...</h3>
+        <p>作者: ES</p>
+        <p>发表时间: </p>
+        <p>编程语言: </p>
+        <p>简介: 这是一个正在开发中的项目。</p>
+      </div>
+    </li>
+    <li class="project-item">
+      <img src="img/making.jpeg" alt="项目2">
+      <div class="project-info">
+        <h3>开发中...</h3>
+        <p>作者: ES</p>
+        <p>发表时间: </p>
+        <p>编程语言: </p>
+        <p>简介: 这是一个正在开发中的项目。</p>
+      </div>
+    </li>
+  </ul>
+  <div id="en">
+    <ul class="pagination">
+      <li><a href="#">«</a></li>
+      <li><a class="active" href="#">1</a></li>
+      <li><a href="#">»</a></li>
+    </ul>
+  </div>
+
+  
+  
+</body>
+</html>

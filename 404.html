@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>404 页面未找到</title>
+<style>
+  body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    background-image: url("project/img/background_last.jpg");
+    background-size: cover;
+    background-position: center 10%;
+  }
+  .container {
+    text-align: center;
+  }
+  .message {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+    transform: rotate(-35deg) scale(1.5);
+  }
+  .cat-image {
+    width: 300px;
+    height: auto;
+    animation: float 5s infinite ease-in-out;
+  }
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div id="message" class="message"></div>
+  <div class="message">喵~你的页面被小猫抓走咯~~~</div>
+  <img src="miao.png" alt="小猫" class="cat-image">
+</div>
+
+<script>
+  var text = "404你的页面不见咯";
+  var i = 0;
+  var messageElement = document.getElementById("message");
+
+  function typeWriter() {
+    if (i < text.length) {
+      messageElement.innerHTML += text.charAt(i);
+      i++;
+      setTimeout(typeWriter, 100); // 每隔100毫秒添加一个字符
+    }
+  }
+
+  typeWriter();
+</script>
+
+</body>
+</html>

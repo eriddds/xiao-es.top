@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mr.guang</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+            background-image: url('img/mr.guang.jpg'); /* 添加背景图片 */
+            background-size: cover; /* 背景图片覆盖整个页面 */
+            background-position: center; /* 背景图片居中显示 */
+            animation: fadeIn 2s ease-in-out; /* 添加淡入动画 */
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.8); /* 半透明背景 */
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* 添加阴影效果 */
+        }
+        h1, h2 {
+            color: #333; /* 设置标题颜色 */
+        }
+        p {
+            color: #666; /* 设置段落颜色 */
+        }
+        ul {
+            list-style-type: none; /* 去除列表默认样式 */
+            padding: 0;
+        }
+        li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px; /* 设置列表项间距 */
+        }
+        .avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 10px; /* 设置头像和简介之间的间距 */
+        }
+        .position {
+            margin-left: 10px; /* 设置职位和简介之间的间距 */
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1> Welcome to Mr.guang </h1>
+        <p>A server studio that involves servers such as:</p>
+        <p><a href="SCP.html">SCP:SL</a>,<a href="https://s.hortorinteractive.com/65LdzE">创游世界</a>...</p>
+        <p>Inspiration and providing players with a better gaming experience</p>
+        <h2>Organization Members</h2>
+        <p>Our poor programmers: </p>
+        <ul>
+            <li>
+                <img src="img/Myheadpi.jpg" alt="Avatar 1" class="avatar"> <!-- 添加成员头像 -->
+                <p class="position">ES -</p> <!-- 添加成员职位 -->
+                <p>BOSS  -个人网站：</p> <!-- 添加成员简介 -->
+                <a href="index.html">ES/小e</a>
+            </li>
+            <li>
+                <img src="img/derek.jpg" alt="Avatar 2" class="avatar"> <!-- 添加成员头像 -->
+                <p class="position">Derek -</p> <!-- 添加成员职位 -->
+                <p>Vice president -无个人网站</p> <!-- 添加成员简介 -->
+            </li>
+            <!-- <li>
+                <img src="avatar3.jpg" alt="Avatar 3" class="avatar">
+                <p class="position">Position 3</p>
+                <p>Member 3</p>
+            </li> -->
+        </ul>
+    </div>
+</body>
+</html>

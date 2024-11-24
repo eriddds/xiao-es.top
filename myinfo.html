@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自我介绍</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            background-image: url('img/yln.jpg');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        .profile {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            opacity: 0.8; /* 添加这一行 */
+        }
+        .profile img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+        .profile p {
+            margin: 10px 0;
+            opacity: 0;
+            animation: typing 3s forwards;
+        }
+        .profile p:nth-child(2) { animation-delay: 0.5s; }
+        .profile p:nth-child(3) { animation-delay: 1s; }
+        .profile p:nth-child(4) { animation-delay: 1.5s; }
+        .profile p:nth-child(5) { animation-delay: 2s; }
+        .profile p:nth-child(6) { animation-delay: 2.5s; }
+        .profile p:nth-child(7) { animation-delay: 3s; }
+        .profile p:nth-child(8) { animation-delay: 3.5s; }
+        .profile p:nth-child(9) { animation-delay: 4s; }
+        .profile p:nth-child(10) { animation-delay: 4.5s; }
+        .profile p:nth-child(11) { animation-delay: 5s; }
+        .profile p:nth-child(12) { animation-delay: 5.5s; }
+        .profile p:nth-child(13) { animation-delay: 6s; }
+        .profile p:nth-child(14) { animation-delay: 6.5s; }
+        .profile p:nth-child(15) { animation-delay: 7s; }
+        .profile a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        @keyframes typing {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .music-player {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .music-player img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            animation: rotate 10s linear infinite;
+        }
+        .controls {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            justify-content: space-between;
+            width: 200px;
+        }
+        .controls button {
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+        .controls button img {
+            width: 30px;
+            height: 30px;
+        }
+        .song-name {
+            position: absolute;
+            bottom: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            width: 200px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="music-player">
+        <img id="album-cover" src="img/your_song_name.jpg" alt="专辑封面">
+    </div>
+    <div class="controls">
+        <button id="prev-btn">
+            <img src="img/prev.jpg" alt="上一首">
+        </button>
+        <button id="play-pause-btn">
+            <img src="img/play.jpeg" alt="播放/暂停">
+        </button>
+        <button id="next-btn">
+            <img src="img/next.jpg" alt="下一首">
+        </button>
+    </div>
+    <div class="song-name" id="song-name">歌曲名</div>
+
+    <div class="profile">
+        <img src="img/Myheadpi.jpg" alt="头像">
+        <h2>你好，我是ES（也可以叫我小e）</h2>
+        <p>我来自中国<img src="img/china.jpg" alt="中国国旗" style="width: 20px; height: 20px; vertical-align: middle;"></p>
+        <p>我是一名初中生，对网络安全和编程有浓厚的兴趣。我正在学习网络安全技术，精通Python语言。</p>
+        <p>如果你需要定制的程序，可以联系我</p>
+        <p>我擅长Python的微信自动化程序和爬虫技能。</p>
+        <p>也擅长渗透测试的SQL注入等。</p>
+        <p>如果你需要和我进行服务器和游戏方面，欢迎加我QQ。</p>
+        <hr />
+        <p>个人QQ号：1722528619</p>
+        <p>编程交流群QQ号：936679804</p>
+        <p>网络安全交流群QQ：856470995</p>
+    </div>
+
+    <audio id="audio-player" controls autoplay style="display: none;">
+        <source src="miu/《Sacred Play Secret Place - Matryoshka》.mp4" type="video/mp4">
+        您的浏览器不支持 audio 元素。
+    </audio>
+
+    <script>
+        const audioPlayer = document.getElementById('audio-player');
+        const albumCover = document.getElementById('album-cover');
+        const songName = document.getElementById('song-name');
+        const playPauseBtn = document.getElementById('play-pause-btn');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+
+        let songs = [
+            { name: '《Sacred Play Secret Place - Matryoshka》', file: 'miu/《Sacred Play Secret Place - Matryoshka》.mp4', cover: 'imm/《Sacred Play Secret Place - Matryoshka》.jpg' },
+            { name: '《AYOU》', file: 'miu/《AYOU》.mp4', cover: 'imm/《AYOU》.jpg' },
+            { name: '《Take Me Hand》', file: 'miu/《Take Me Hand》.mp4', cover: 'imm/《Take Me Hand》.jpg' },
+            { name: '周杰伦《晴天》', file: 'miu/周杰伦《晴天》.mp4', cover: 'imm/周杰伦《晴天》.jpg' },
+            // 添加更多歌曲
+        ];
+
+        let currentSongIndex = 0;
+
+        function loadSong(songIndex) {
+            currentSongIndex = songIndex;
+            audioPlayer.src = songs[songIndex].file;
+            albumCover.src = songs[songIndex].cover;
+            songName.textContent = songs[songIndex].name;
+            playSong(); // 添加这一行
+        }
+
+        function playSong() {
+            audioPlayer.play();
+            albumCover.style.animationPlayState = 'running';
+        }
+
+        function pauseSong() {
+            audioPlayer.pause();
+            albumCover.style.animationPlayState = 'paused';
+        }
+
+        playPauseBtn.addEventListener('click', () => {
+            if (audioPlayer.paused) {
+                playSong();
+                playPauseBtn.querySelector('img').src = 'img/stop.gif';
+            } else {
+                pauseSong();
+                playPauseBtn.querySelector('img').src = 'img/play.jpeg';
+            }
+        });
+
+        prevBtn.addEventListener('click', () => {
+            if (currentSongIndex > 0) {
+                loadSong(currentSongIndex - 1);
+                playSong();
+                playPauseBtn.querySelector('img').src = 'img/stop.gif';
+            }
+        });
+
+        nextBtn.addEventListener('click', () => {
+            if (currentSongIndex < songs.length - 1) {
+                loadSong(currentSongIndex + 1);
+                playSong();
+                playPauseBtn.querySelector('img').src = 'img/stop.gif';
+            }
+        });
+
+        loadSong(currentSongIndex);
+    </script>
+</body>
+</html>
