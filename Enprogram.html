@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Projects</title>
+  <style>
+    body {
+      background-image: url('img/background.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      color: white;
+      background-attachment: fixed;
+    }
+    .project-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: rgba(135, 206, 235, 0.5);
+    }
+    .project-item img {
+      width: 100px;
+      height: 100px;
+      margin-right: 20px;
+    }
+    .project-item h3 {
+      margin: 0;
+    }
+    .project-info {
+      display: flex;
+      flex-direction: column;
+    }
+    .project-info p {
+      margin: 0;
+    }
+    #one {
+      text-align: center;
+    }
+    ul.pagination {
+      display: inline-block;
+      padding: 0;
+      margin: 0;
+    }
+    ul.pagination li {
+      display: inline;
+    }
+    ul.pagination li a {
+      color: black;
+      float: left;
+      padding: 8px 16px;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+    ul.pagination li a.active {
+      background-color: #4CAF50;
+      color: white;
+      border-radius: 5px;
+    }
+    ul.pagination li a:hover:not(.active) {
+      background-color: #ddd;
+    }
+    #en {
+      text-align: center;
+      background-size: auto;
+      background-color: white;
+    }
+    .button {
+      display: inline-block;
+      border-radius: 4px;
+      background-color: skyblue;
+      border: none;
+      color: #FFFFFF;
+      text-align: center;
+      font-size: 12px;
+      padding: 10px;
+      width: 100px;
+      transition: all 0.5s;
+      cursor: pointer;
+      margin: 5px;
+    }
+    .button span {
+      cursor: pointer;
+      display: inline-block;
+      position: relative;
+      transition: 0.5s;
+    }
+    .button span:after {
+      content: '»';
+      position: absolute;
+      opacity: 0;
+      top: 0;
+      right: -20px;
+      transition: 0.5s;
+    }
+    .button:hover span {
+      padding-right: 25px;
+    }
+    .button:hover span:after {
+      opacity: 1;
+      right: 0;
+    }
+    .my-button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <h1 id="one">My Projects #1</h1><hr size="10px" color="black" />
+  <ul>
+    <!--
+    Format:
+    <li class="project-item">
+      <img src="img/GoSpider.jpeg" alt="Project 1">
+      <div class="project-info">
+        <a href="">Web Data Crawling Tool</a>
+        <p>Author: ES</p>
+        <p>Publish Time: 2024/11/23</p>
+        <p>Programming Language: Python</p>
+      </div>
+    </li>
+    -->
+    <li class="project-item">
+      <img src="img/GoSpider.jpeg" alt="Project 1">
+      <div class="project-info">
+        <a href="gospider.html">GoSpider</a>
+        <p>Author: ES</p>
+        <p>Publish Time: 2024/11/23</p>
+        <p>Programming Language: Python</p>
+        <p>Introduction: Crawling web page source code, can use regular expressions to find data. Suitable for beginners to practice web crawling.</p>
+      </div>
+    </li>
+    <li class="project-item">
+      <img src="img/None.jpg" alt="Project 2">
+      <div class="project-info">
+        <a href="encryption.html">Encryption Program</a>
+        <p>Author: ES</p>
+        <p>Publish Time: 2024/11/23</p>
+        <p>Programming Language: Python</p>
+        <p>Introduction: Can encrypt information and add an encryption password, with high security coefficient.</p>
+      </div>
+    </li>
+    <li class="project-item">
+      <img src="img/None.jpg" alt="Project 2">
+      <div class="project-info">
+        <h3><a href="sent.html">Penetration Testing Target Field</a></h3>
+        <p>Author: ES</p>
+        <p>Publish Time: 2024/11/29</p>
+        <p>Programming Language: </p>
+        <p>Introduction: A target field for network security and penetration testing, download and use directly.</p>
+      </div>
+    </li>
+    <li class="project-item">
+      <img src="img/making.jpeg" alt="Project 2">
+      <div class="project-info">
+        <h3>Under Development...</h3>
+        <p>Author: ES</p>
+        <p>Publish Time: </p>
+        <p>Programming Language: </p>
+        <p>Introduction: This is a project that is under development.</p>
+      </div>
+    </li>
+    <li class="project-item">
+      <img src="img/making.jpeg" alt="Project 2">
+      <div class="project-info">
+        <h3>Under Development...</h3>
+        <p>Author: ES</p>
+        <p>Publish Time: </p>
+        <p>Programming Language: </p>
+        <p>Introduction: This is a project that is under development.</p>
+      </div>
+    </li>
+  </ul>
+  <div id="en">
+    <ul class="pagination">
+      <li><a href="#">«</a></li>
+      <li><a class="active" href="#">1</a></li>
+      <li><a href="#">»</a></li>
+    </ul>
+  </div>
+
+  <button class="button" style="position: fixed; top: 20px; right: 20px;" onclick="window.location.href='program.html'"><span>中文 </span></button>
+
+</body>
+</html>

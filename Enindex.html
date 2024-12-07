@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>欢迎来到ES的网站</title>
+<title>Welcome to ES's Website</title>
 <style>
   body {
     display: flex;
@@ -13,14 +13,14 @@
     margin: 0;
     background-color: #f0f0f0;
     font-family: Arial, sans-serif;
-    background-image: url('img/background_one.jpg'); /* 添加背景图片 */
-    background-size: cover; /* 覆盖整个页面 */
-    background-position: center; /* 居中背景图片 */
+    background-image: url('img/background_one.jpg'); /* Add background image */
+    background-size: cover; /* Cover the entire page with background image */
+    background-position: center; /* Center the background image */
   }
   .typewriter {
     overflow: hidden;
     border-right: .15em solid orange;
-    white-space: pre; /* 保留空格 */
+    white-space: pre; /* Preserve spaces */
     font-size: 3.5em;
     animation:
       typing 3.5s steps(40, end),
@@ -46,24 +46,24 @@
     left: 0;
     top: 50%;
     transform: translateY(-50%);
-    margin-left: 200px; /* 向右移动200像素 */
+    margin-left: 200px; /* Move 200 pixels to the right */
   }
   .image-container img {
-    max-width: 300px; /* 调整图片大小 */
-    border-radius: 50%; /* 圆形 */
-    border: 2px solid #fff; /* 白色边框 */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* 阴影效果 */
+    max-width: 300px; /* Adjust image size as needed */
+    border-radius: 50%; /* Cut into a circle */
+    border: 2px solid #fff; /* Add white border */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Add shadow effect */
   }
   .greeting {
     position: absolute;
     left: 0;
     top: 45%;
     transform: translateY(-50%);
-    margin-left: 600px; /* 向左移动100像素 */
+    margin-left: 600px; /* Move 100 pixels to the left */
     font-size: 3em;
     color: #333;
-    opacity: 0; /* 初始透明度为0 */
-    animation: fadeIn 10s forwards; /* 添加淡入动画 */
+    opacity: 0; /* Initial opacity is 0 */
+    animation: fadeIn 10s forwards; /* Add fade-in animation */
   }
   @keyframes fadeIn {
     from { opacity: 0; }
@@ -108,20 +108,20 @@
     background-color: #0056b3;
   }
   .greeting-text {
-    text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.5), /* 右上 */
-                 -1px -1px 0px rgba(255, 255, 255, 0.5), /* 左下 */
-                  1px -1px 0px rgba(255, 255, 255, 0.5), /* 右下 */
-                 -1px 1px 0px rgba(255, 255, 255, 0.5); /* 左上 */
+    text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.5), /* Top right */
+                 -1px -1px 0px rgba(255, 255, 255, 0.5), /* Bottom left */
+                  1px -1px 0px rgba(255, 255, 255, 0.5), /* Bottom right */
+                 -1px 1px 0px rgba(255, 255, 255, 0.5); /* Top left */
     padding: 10px;
     border-radius: 5px;
   }
   .sidebar {
     position: fixed;
     top: 0;
-    right: -500px; /* 初始位置在屏幕外 */
+    right: -500px; /* Initial position is outside the screen */
     width: 200px;
     height: 100%;
-    background-color: rgba(255, 255, 255, 0.8); /* 白色半透明 */
+    background-color: rgba(255, 255, 255, 0.8); /* White semi-transparent */
     transition: right 0.5s;
     z-index: 1000;
     padding: 20px;
@@ -147,7 +147,7 @@
   border-radius: 5px;
   cursor: pointer;
   z-index: 1001;
-  opacity: 0.8; /* 设置透明度为50% */
+  opacity: 0.8; /* Set opacity to 50% */
   text-decoration: none;
   display: inline-block;
   margin: 4px 2px;
@@ -160,46 +160,46 @@
 </style>
 </head>
 <body>
-    <div id="typewriter" class="typewriter">欢迎来到ES的网站</div>
+    <div id="typewriter" class="typewriter">Welcome to ES's Website</div>
 
     <div class="image-container">
-    <img src="img/Myheadpi.jpg" alt="头像">
+    <img src="img/Myheadpi.jpg" alt="Avatar">
     </div>
 
     <div class="greeting">
         <div class="greeting-text">
-            你好，我是ES。你也可以叫我小E<br />首先，欢迎来到我的网站<hr />
+            Hello, I am ES. You can also call me Little E<br />First of all, welcome to my website<hr />
         </div>
-        <button class="button" style="vertical-align:middle" onclick="window.location.href='program.html'"><span>我的项目 </span></button>
-        <button class="button" style="vertical-align:middle" onclick="window.location.href='menber.html'"><span>我的组织 </span></button>
-        <button class="button" style="vertical-align:middle" onclick="window.location.href='myinfo.html'"><span>关于我 </span></button>
+        <button class="button" style="vertical-align:middle" onclick="window.location.href='Enprogram.html'"><span>My Projects </span></button>
+        <button class="button" style="vertical-align:middle" onclick="window.location.href='menber.html'"><span>My Organization </span></button>
+        <button class="button" style="vertical-align:middle" onclick="window.location.href='Enmyinfo.html'"><span>About Me </span></button>
     </div>
 
-    <button  class="toggle-button" onclick="toggleSidebar()">菜单</button>
+    <button  class="toggle-button" onclick="toggleSidebar()">Menu</button>
     <div id="sidebar" class="sidebar">
       <p>ES_orb</p>
-      <button class="button" onclick="window.location.href='program.html'"><span>我的项目</span></button>
-      <button class="button" onclick="window.location.href='menber.html'"><span>我的组织</span></button>
-      <button class="button" onclick="window.location.href='myinfo.html'"><span>关于我</span></button>
-      <button class="button" onclick="window.location.href='updates.html'"><span>我的动态 </span></button>
-      <button class="button" onclick="window.location.href='updates.html'"><span>KAHT的动态</span></button>
-      <button class="button" onclick="window.location.href='updates.html'"><span>Mr.guang的动态</span></button>
+      <button class="button" onclick="window.location.href='Enprogram.html'"><span>My Projects </span></button>
+      <button class="button" onclick="window.location.href='menber.html'"><span>My Organization </span></button>
+      <button class="button" onclick="window.location.href='Enmyinfo.html'"><span>About Me </span></button>
+      <button class="button" onclick="window.location.href='updates.html'"><span>My Updates </span></button>
+      <button class="button" onclick="window.location.href='updates.html'"><span>KAHT's Updates </span></button>
+      <button class="button" onclick="window.location.href='updates.html'"><span>Mr.guang's Updates </span></button>
     </div>
 
-    <button class="toggle-button" style="position: fixed; top: 20px; right: 90px;" onclick="window.location.href='Enindex.html'">English</button>
+    <button class="toggle-button" style="position: fixed; top: 20px; right: 90px;" onclick="window.location.href='index.html'">中文</button>
 
     <script>
-    // 获取打字动画的结束时间
-    const typingAnimationEnd = 98; // 0.98秒
-    const blinkAnimationDuration = 750; // 0.75秒
+    // Get the end time of the typing animation
+    const typingAnimationEnd = 98; // 0.98 seconds
+    const blinkAnimationDuration = 750; // 0.75 seconds
 
-    // 设置打字动画结束后延迟的时间
+    // Set the delay time after the typing animation ends
     const fadeOutDelay = typingAnimationEnd + blinkAnimationDuration;
 
-    // 获取打字动画的元素
+    // Get the element of the typing animation
     const typewriter = document.getElementById('typewriter');
 
-    // 设置打字动画结束后延迟的时间
+    // Set the delay after the typing animation ends
     setTimeout(() => {
         typewriter.classList.add('fade-out');
     }, fadeOutDelay);

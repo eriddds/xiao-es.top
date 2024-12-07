@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>自我介绍</title>
+    <title>About Me</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -120,39 +120,41 @@
 </head>
 <body>
     <div class="music-player">
-        <img id="album-cover" src="img/your_song_name.jpg" alt="专辑封面">
+        <img id="album-cover" src="img/your_song_name.jpg" alt="Album Cover">
     </div>
     <div class="controls">
         <button id="prev-btn">
-            <img src="img/prev.jpg" alt="上一首">
+            <img src="img/prev.jpg" alt="Previous">
         </button>
         <button id="play-pause-btn">
-            <img src="img/play.jpeg" alt="播放/暂停">
+            <img src="img/play.jpeg" alt="Play/Pause">
         </button>
         <button id="next-btn">
-            <img src="img/next.jpg" alt="下一首">
+            <img src="img/next.jpg" alt="Next">
         </button>
     </div>
-    <div class="song-name" id="song-name">歌曲名</div>
+    <div class="song-name" id="song-name">Song Name</div>
 
     <div class="profile">
-        <img src="img/Myheadpi.jpg" alt="头像">
-        <h2>你好，我是ES（也可以叫我小e）</h2>
-        <p>我来自中国<img src="img/china.jpg" alt="中国国旗" style="width: 20px; height: 20px; vertical-align: middle;"></p>
-        <p>我是一名初中生，对网络安全和编程有浓厚的兴趣。我正在学习网络安全技术，精通Python语言。</p>
-        <p>如果你需要定制的程序，可以联系我</p>
-        <p>我擅长Python的微信自动化程序和爬虫技能。</p>
-        <p>也擅长渗透测试的SQL注入等。</p>
-        <p>如果你需要和我进行服务器和游戏方面，欢迎加我QQ。</p>
+        <img src="img/Myheadpi.jpg" alt="Avatar">
+        <h2>Hello, I am ES (You can also call me little e)</h2>
+        <p>I am from China <img src="img/china.jpg" alt="China Flag" style="width: 20px; height: 20px; vertical-align: middle;"></p>
+        <p>I am a middle school student and I have a keen interest in cybersecurity and programming. I am learning cybersecurity technology and proficient in Python language.</p>
+        <p>If you need customized programs, you can contact me</p>
+        <p>I am good at Python's WeChat automation programs and web crawling skills.</p>
+        <p>I am also good at penetration testing skills such as SQL injection.</p>
+        <p>If you need me for server and game-related services, welcome to add me on QQ.</p>
         <hr />
-        <p>个人QQ号：1722528619</p>
-        <p>编程交流群QQ号：936679804</p>
+        <p>Personal QQ number: 1722528619</p>
+        <p>Programming exchange group QQ number: 936679804</p>
     </div>
 
     <audio id="audio-player" controls autoplay style="display: none;">
         <source src="miu/《Sacred Play Secret Place - Matryoshka》.mp4" type="video/mp4">
-        您的浏览器不支持 audio 元素。
+        Your browser does not support the audio element.
     </audio>
+
+    <button class="button" style="position: fixed; top: 20px; right: 20px;" onclick="window.location.href='index.html'"><span>Home </span></button>
 
     <script>
         const audioPlayer = document.getElementById('audio-player');
@@ -166,7 +168,7 @@
             { name: '《Sacred Play Secret Place - Matryoshka》', file: 'miu/《Sacred Play Secret Place - Matryoshka》.mp3', cover: 'imm/《Sacred Play Secret Place - Matryoshka》.jpg' },
             { name: '《AYOU》', file: 'miu/《AYOU》.mp3', cover: 'imm/《AYOU》.jpg' },
             { name: '《Take Me Hand》', file: 'miu/《Take Me Hand》.mp3', cover: 'imm/《Take Me Hand》.jpg' },
-            // 添加更多歌曲
+            // Add more songs
         ];
 
         let currentSongIndex = 0;
@@ -176,7 +178,7 @@
             audioPlayer.src = songs[songIndex].file;
             albumCover.src = songs[songIndex].cover;
             songName.textContent = songs[songIndex].name;
-            playSong(); // 添加这一行
+            playSong(); // Add this line
         }
 
         function playSong() {

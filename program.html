@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -68,71 +68,109 @@
       background-size: auto;
       background-color: white;
     }
+    .button {
+      display: inline-block;
+      border-radius: 4px;
+      background-color: skyblue;
+      border: none;
+      color: #FFFFFF;
+      text-align: center;
+      font-size: 12px;
+      padding: 10px;
+      width: 100px;
+      transition: all 0.5s;
+      cursor: pointer;
+      margin: 5px;
+    }
+    .button span {
+      cursor: pointer;
+      display: inline-block;
+      position: relative;
+      transition: 0.5s;
+    }
+    .button span:after {
+      content: '»';
+      position: absolute;
+      opacity: 0;
+      top: 0;
+      right: -20px;
+      transition: 0.5s;
+    }
+    .button:hover span {
+      padding-right: 25px;
+    }
+    .button:hover span:after {
+      opacity: 1;
+      right: 0;
+    }
+    .my-button:hover {
+      background-color: #0056b3;
+    }
   </style>
 </head>
 <body>
-  <h1 id="one">我的项目#1</h1><hr size="10px" color="black" />
+  <h1 id="one">我的项目 #1</h1><hr size="10px" color="black" />
   <ul>
     <!--
-    格式：
+    Format:
     <li class="project-item">
-      <img src="img/GoSpider.jpeg" alt="项目1">
+      <img src="img/GoSpider.jpeg" alt="Project 1">
       <div class="project-info">
-        <a href="">网络数据抓取工具</a>
-        <p>作者: ES</p>
-        <p>发表时间: 2024/11/23</p>
-        <p>编程语言: Python</p>
+        <a href="">Web Data Crawling Tool</a>
+        <p>Author: ES</p>
+        <p>Publish Time: 2024/11/23</p>
+        <p>Programming Language: Python</p>
       </div>
     </li>
     -->
     <li class="project-item">
-      <img src="img/GoSpider.jpeg" alt="项目1">
+      <img src="img/GoSpider.jpeg" alt="Project 1">
       <div class="project-info">
         <a href="gospider.html">GoSpider</a>
         <p>作者: ES</p>
-        <p>发表时间: 2024/11/23</p>
+        <p>发布时间: 2024/11/23</p>
         <p>编程语言: Python</p>
-        <p>简介: 爬取网页源码，可以使用正则表达来找到数据。适合新手来练习爬虫</pb>
+        <p>介绍: 爬取网页源代码，可以使用正则表达式查找数据。适合初学者练习爬虫。</p>
       </div>
     </li>
     <li class="project-item">
-      <img src="img/None.jpg" alt="项目2">
+      <img src="img/None.jpg" alt="Project 2">
       <div class="project-info">
         <a href="encryption.html">加密程序</a>
         <p>作者: ES</p>
-        <p>发表时间: 2024/11/23</p>
+        <p>发布时间: 2024/11/23</p>
         <p>编程语言: Python</p>
-        <p>简介: 可以进行对信息的加密并添加加密密码，安全系数很高</p>
+        <p>介绍: 可以加密信息并添加加密密码，具有高安全系数。</p>
       </div>
     </li>
     <li class="project-item">
-      <img src="img/None.jpg" alt="项目2">
+      <img src="img/None.jpg" alt="Project 2">
       <div class="project-info">
-        <h3><a href="sent.html">渗透测试靶场</a></h3>
+        <h3><a href="sent.html">渗透测试目标场</a></h3>
         <p>作者: ES</p>
-        <p>发表时间: 2024/11/29</p>
+        <p>发布时间: 2024/11/29</p>
         <p>编程语言: </p>
-        <p>简介: 为网络安全和渗透测试做的靶场整合，下载直接用。</p>
+        <p>介绍: 网络安全渗透测试的目标场，直接下载并使用。</p>
       </div>
     </li>
     <li class="project-item">
-      <img src="img/making.jpeg" alt="项目2">
+      <img src="img/making.jpeg" alt="Project 2">
       <div class="project-info">
-        <h3>开发中...</h3>
+        <h3>正在开发中...</h3>
         <p>作者: ES</p>
-        <p>发表时间: </p>
+        <p>发布时间: </p>
         <p>编程语言: </p>
-        <p>简介: 这是一个正在开发中的项目。</p>
+        <p>介绍: 这是一个正在开发的项目。</p>
       </div>
     </li>
     <li class="project-item">
-      <img src="img/making.jpeg" alt="项目2">
+      <img src="img/making.jpeg" alt="Project 2">
       <div class="project-info">
-        <h3>开发中...</h3>
+        <h3>正在开发中...</h3>
         <p>作者: ES</p>
-        <p>发表时间: </p>
+        <p>发布时间: </p>
         <p>编程语言: </p>
-        <p>简介: 这是一个正在开发中的项目。</p>
+        <p>介绍: 这是一个正在开发的项目。</p>
       </div>
     </li>
   </ul>
@@ -144,7 +182,7 @@
     </ul>
   </div>
 
-  
-  
+  <button class="button" style="position: fixed; top: 20px; right: 20px;" onclick="window.location.href='Enprogram.html'"><span>English</span></button>
+
 </body>
 </html>
