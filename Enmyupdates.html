@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mr.Guang Updates</title>
+    <title>My Updates</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <style>
         body {
@@ -15,7 +15,7 @@
             align-items: center;
             height: 100vh;
             background-color: #f4f4f4;
-            background-image: url('img/background_onee.jpg'); /* 添加这一行 */
+            background-image: url('img/background_one.jpg'); /* 添加这一行 */
             background-size: cover; /* 调整背景图片大小以覆盖整个页面 */
             background-position: center; /* 调整背景图片位置 */
             background-repeat: no-repeat; /* 防止背景图片重复 */
@@ -86,60 +86,68 @@
             text-decoration: underline;
         }
         .button {
-            display: inline-block;
-            border-radius: 4px;
-            background-color: skyblue;
-            border: none;
-            color: #FFFFFF;
-            text-align: center;
-            font-size: 12px;
-            padding: 10px;
-            width: 100px;
-            transition: all 0.5s;
-            cursor: pointer;
-            margin: 5px;
+          display: inline-block;
+          border-radius: 4px;
+          background-color: skyblue;
+          border: none;
+          color: #FFFFFF;
+          text-align: center;
+          font-size: 12px;
+          padding: 10px;
+          width: 100px;
+          transition: all 0.5s;
+          cursor: pointer;
+          margin: 5px;
         }
         .button span {
-            cursor: pointer;
-            display: inline-block;
-            position: relative;
-            transition: 0.5s;
+          cursor: pointer;
+          display: inline-block;
+          position: relative;
+          transition: 0.5s;
         }
         .button span:after {
-            content: '»';
-            position: absolute;
-            opacity: 0;
-            top: 0;
-            right: -20px;
-            transition: 0.5s;
+          content: '»';
+          position: absolute;
+          opacity: 0;
+          top: 0;
+          right: -20px;
+          transition: 0.5s;
         }
         .button:hover span {
-            padding-right: 25px;
+          padding-right: 25px;
         }
         .button:hover span:after {
-            opacity: 1;
-            right: 0;
+          opacity: 1;
+          right: 0;
         }
         .my-button:hover {
-            background-color: #0056b3;
+          background-color: #0056b3;
         }
     </style>
 </head>
 <body>
     <div class="navbar">
-        <h1>Mr.Guang</h1>
+        <h1>My Updates</h1>
         <nav>
-            <a href="index.html">首页</a>
-            <a href="#">下一页</a>
-            <a href="#">上一页</a>
+            <a href="Enindex.html">Home</a>
+            <a href="#">Next Page</a>
+            <a href="#">Previous Page</a>
         </nav>
     </div>
     <div class="container">
         <div class="column">
+            <img src="img/python.jpeg" alt="Image 1">
+            <hr />
+            <div class="content">
+                <h3><a href="python.html">Python Order</a></h3>
+                <p>2024-11-25</p>
+            </div>
+        </div>
+        <div class="column">
             <img src="img/null.jpeg" alt="Image 1">
             <hr />
             <div class="content">
-                <h3><a href="###">NULL</a></h3>
+                <h3><a href="###">None</a></h3>
                 <p>xxxx-xx-xx</p>
             </div>
         </div>
@@ -147,7 +155,7 @@
             <img src="img/null.jpeg" alt="Image 1">
             <hr />
             <div class="content">
-                <h3><a href="###">无</a></h3>
+                <h3><a href="###">None</a></h3>
                 <p>xxxx-xx-xx</p>
             </div>
         </div>
@@ -155,21 +163,13 @@
             <img src="img/null.jpeg" alt="Image 1">
             <hr />
             <div class="content">
-                <h3><a href="###">无</a></h3>
-                <p>xxxx-xx-xx</p>
-            </div>
-        </div>
-        <div class="column">
-            <img src="img/null.jpeg" alt="Image 1">
-            <hr />
-            <div class="content">
-                <h3><a href="###">无</a></h3>
+                <h3><a href="###">None</a></h3>
                 <p>xxxx-xx-xx</p>
             </div>
         </div>
     </div>
 
-    <button class="button" style="position: fixed; top: 5px; right: 20px;" onclick="window.location.href='EnMr.html'"><span>English</span></button>
+    <button class="button" style="position: fixed; top: 5px; right: 20px;" onclick="window.location.href='myupdates.html'"><span>中文 </span></button>
 
 </body>
 </html>
