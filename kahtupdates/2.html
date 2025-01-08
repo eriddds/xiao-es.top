@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Types of Computer Viruses</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            background-image: url('img/kali.jpeg'); /* Add background image */
+            background-size: cover; /* Cover the entire page with the background image */
+            background-attachment: fixed; /* Fix the background image position while scrolling */
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        h1 {
+            margin: 0;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        .main-content {
+            background: #fff;
+            padding: 20px;
+            box-sizing: border-box;
+            opacity: 0; /* Initial opacity is 0 */
+            animation: fadeIn 2s ease-in-out forwards; /* Add animation and keep the final state after animation */
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 0.8;
+            }
+        }
+        .post {
+            margin-bottom: 20px;
+        }
+        .post h2 {
+            margin: 0;
+        }
+        .post p {
+            margin: 10px 0;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            bottom: 0;
+            width: 100%;
+        }
+        @media (max-width: 600px) {
+            .container {
+                width: 95%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Types of Computer Viruses</h1>
+    </header>
+    <div class="container">
+        <div class="main-content">
+            <div class="post">
+                <h3>contents:</h3>
+                <ol>
+                    <li><a href="#one">Types and forms of viruses</a></li>
+                    <li><a href="#tow">How to solve the problem if you have been infiltrated by a virus</a></li>
+                    <li><a href="#three">How to identify virus files</a></li>
+                </ol>
+                <br />
+                <h2 id="one">There are multiple types of computer viruses, including but not limited to:</h2>
+                
+                <ul>
+                    <li><strong>File Viruses</strong>
+                        <ul>
+                            <li>Parasitic Viruses
+                                <ul>
+                                    <li>Characteristics: Attach to executable files and modify the file's code structure.</li>
+                                    <li>Common Forms: Executable files (e.g., .exe, .com).</li>
+                                    <li>File Extensions: .exe, .com.</li>
+                                </ul>
+                            </li>
+                            <li>Overwriting Viruses
+                                <ul>
+                                    <li>Characteristics: Overwrite or replace the content of target files, causing the original files to be lost or damaged.</li>
+                                    <li>Common Forms: Executable files or data files.</li>
+                                    <li>File Extensions: .exe, .com, .dat.</li>
+                                </ul>
+                            </li>
+                            <li>Companion Viruses
+                                <ul>
+                                    <li>Characteristics: Create files with the same name as the target file but with a different extension; when the user runs the target file, the virus file is actually executed.</li>
+                                    <li>Common Forms: Companion files to executable files.</li>
+                                    <li>File Extensions: .bat, .cmd.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><strong>Boot Sector Viruses</strong>
+                        <ul>
+                            <li>Master Boot Record Viruses
+                                <ul>
+                                    <li>Characteristics: Infect the Master Boot Record (MBR) of the hard drive or the boot sector of a floppy disk, and execute when the system starts.</li>
+                                    <li>Common Forms: Boot sector of the system at startup.</li>
+                                    <li>File Extensions: No specific file extension, affects the MBR of the hard drive.</li>
+                                </ul>
+                            </li>
+                            <li>Partition Table Viruses
+                                <ul>
+                                    <li>Characteristics: Modify the partition table of the hard drive, causing the system to fail to start normally or files to be lost.</li>
+                                    <li>Common Forms: Partition table structure.</li>
+                                    <li>File Extensions: No specific file extension, affects the partition table of the hard drive.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><strong>Macro Viruses</strong>
+                        <ul>
+                            <li>Document Macro Viruses
+                                <ul>
+                                    <li>Characteristics: Utilize the macro functions in Office documents; when users open documents containing malicious macros, the virus is triggered.</li>
+                                    <li>Common Forms: Office documents.</li>
+                                    <li>File Extensions: .doc, .xls, .ppt.</li>
+                                </ul>
+                            </li>
+                            <li>Template Macro Viruses
+                                <ul>
+                                    <li>Characteristics: Infect Office template files; when users create new documents, the virus automatically spreads to the new documents.</li>
+                                    <li>Common Forms: Office template files.</li>
+                                    <li>File Extensions: .dot, .xlt, .pot.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><strong>Worm Viruses</strong>
+                        <ul>
+                            <li>Network Worms
+                                <ul>
+                                    <li>Characteristics: Spread automatically through network vulnerabilities without user intervention, quickly infecting a large number of systems.</li>
+                                    <li>Common Forms: Network data packets or vulnerability exploitation code.</li>
+                                    <li>File Extensions: No specific file extension, typically exist as network data packets.</li>
+                                </ul>
+                            </li>
+                            <li>Email Worms
+                                <ul>
+                                    <li>Characteristics: Spread through email attachments or links; when users open attachments or click on links, the virus is activated.</li>
+                                    <li>Common Forms: Email attachments.</li>
+                                    <li>File Extensions: .exe, .scr, .bat.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><strong>Script Viruses</strong>
+                        <ul>
+                            <li>Batch Script Viruses
+                                <ul>
+                                    <li>Characteristics: Utilize Windows batch scripts to perform operations such as file deletion and system settings modification.</li>
+                                    <li>Common Forms: Batch script files.</li>
+                                    <li>File Extensions: .bat, .cmd.</li>
+                                </ul>
+                            </li>
+                            <li>JavaScript Viruses
+                                <ul>
+                                    <li>Characteristics: Utilize JavaScript scripts, typically spread through web pages or email attachments.</li>
+                                    <li>Common Forms: Web scripts or email attachments.</li>
+                                    <li>File Extensions: .js, .html.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><strong>Folder Viruses</strong>
+                        <ul>
+                            <li>Folder Icon Disguise Viruses
+                                <ul>
+                                    <li>Characteristics: Disguise virus files as folder icons; when users double-click the "folder," they are actually executing the virus file.</li>
+                                    <li>Common Forms: Executable files disguised as folders.</li>
+                                    <li>File Extensions: .exe, .scr.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><strong>Logic Bombs</strong>
+                        <ul>
+                            <li>Condition-triggered Logic Bombs
+                                <ul>
+                                    <li>Characteristics: Execute malicious operations when specific conditions are met (e.g., a particular date, a specific file is opened).</li>
+                                    <li>Common Forms: Malicious code embedded in normal programs or scripts.</li>
+                                    <li>File Extensions: No specific file extension, typically hidden in executable files or script files.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><strong>Backdoor Viruses</strong>
+                        <ul>
+                            <li>Remote Access Backdoors
+                                <ul>
+                                    <li>Characteristics: Provide attackers with remote access to the infected system, allowing them to control the system remotely.</li>
+                                    <li>Common Forms: Backdoor programs or services.</li>
+                                    <li>File Extensions: No specific file extension, typically exist as executable files.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><strong>File Encryption Viruses</strong>
+                        <ul>
+                            <li>Ransomware
+                                <ul>
+                                    <li>Characteristics: Encrypt users' files and demand a ransom for the decryption key.</li>
+                                    <li>Common Forms: Ransomware programs.</li>
+                                    <li>File Extensions: No specific file extension, typically exist as executable files.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><strong>Polymorphic Viruses</strong>
+                        <ul>
+                            <li>Polymorphic Engine Viruses
+                                <ul>
+                                    <li>Characteristics: Change their code each time they infect a file, making virus detection more difficult.</li>
+                                    <li>Common Forms: Executable files.</li>
+                                    <li>File Extensions: .exe, .com.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><strong>Stealth Viruses</strong>
+                        <ul>
+                            <li>Rootkit Viruses
+                                <ul>
+                                    <li>Characteristics: Hide themselves and their malicious activities, making it difficult for users and security software to detect their presence.</li>
+                                    <li>Common Forms: System processes or services.</li>
+                                    <li>File Extensions: No specific file extension, typically hidden in system files.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <h2 id="tow"># If your computer has been infected with a virus, you can follow these steps to resolve the issue:</h2>
+                <ol>
+                    <li><strong>Disconnect from the network</strong>
+                        <p>Immediately disconnect your computer from the network to prevent the virus from spreading further over the network or downloading more malicious software.</p>
+                    </li>
+                    <li><strong>Boot into Safe Mode</strong>
+                        <p>Restart your computer and boot into Safe Mode. Safe Mode loads the minimum system files and drivers, which helps prevent the virus from running during startup.</p>
+                    </li>
+                    <li><strong>Run Antivirus Software</strong>
+                        <p>Use antivirus software to perform a full scan and remove the virus. If you don't have antivirus software, you can download and install one from a trusted source in Safe Mode.</p>
+                    </li>
+                    <li><strong>Delete Suspect Files</strong>
+                        <p>Check for suspicious files and programs in your system and delete them. Pay special attention to unknown sources or suspicious executable files.</p>
+                    </li>
+                    <li><strong>Update the System and Software</strong>
+                        <p>Ensure that your operating system and all software are updated to the latest version to patch any existing security vulnerabilities.</p>
+                    </li>
+                    <li><strong>Restore the System</strong>
+                        <p>If the problem is severe, consider using the system restore feature to restore to an earlier system restore point or reinstall the operating system.</p>
+                    </li>
+                    <li><strong>Backup Important Data</strong>
+                        <p>After resolving the issue, ensure to back up all important data to prevent data loss in the future.</p>
+                    </li>
+                </ol>
+                <p>By following these steps, you can effectively resolve the issue of your computer being infected with a virus. If the problem persists, it is recommended to seek professional technical support.</p>
+                <br />
+                <h2 id="three"># How to Identify Virus Files</h2>
+                <p>Identifying virus files is an important step in protecting your computer's security. Here are some common methods to identify virus files:</p>
+                <ol>
+                    <li><strong>Check File Name and Path</strong>
+                        <p>Virus files often use the names of normal files or system files to disguise themselves, such as changing svchost.exe to svch0st.exe, or appearing in folders that they shouldn't be in, such as the windows folder where you find files like RAV or RealPlayer.</p>
+                    </li>
+                    <li><strong>Check File Properties</strong>
+                        <p>Check the file's version information and manufacturer information. Normal files usually have detailed version information and manufacturer information, while virus files may not have version information, or the manufacturer information may not match the file name, such as a strange file name but Microsoft's manufacturer information.</p>
+                    </li>
+                    <li><strong>Scan with Antivirus Software</strong>
+                        <p>Use antivirus software to scan suspicious files. Antivirus software will use its virus database, including feature codes, behavior patterns, etc., to determine whether a file is a virus.</p>
+                    </li>
+                    <li><strong>Analyze File Behavior</strong>
+                        <p>Run suspicious files in a sandbox environment and observe their behavior. Virus files usually perform some abnormal operations, such as frequently accessing the registry, modifying system files, downloading other malicious files, etc.</p>
+                    </li>
+                    <li><strong>Check File MD5 Value</strong>
+                        <p>Calculate the MD5 value of the file and compare it with the MD5 values in the virus database. If a match is found, it indicates that the file is a malicious file.</p>
+                    </li>
+                    <li><strong>Check the API Called by the File</strong>
+                        <p>Use disassembly tools to view the API called by the file. Virus files may call some APIs that are unrelated to normal programs, such as frequently calling CreateFile, WriteFile, etc. file operation APIs.</p>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>ES &copy; 2025 KAHT</p>
+    </footer>
+</body>
+</html>

@@ -20,14 +20,6 @@
             animation: fadeIn 2s ease-in-out; /* 添加淡入动画 */
             background-attachment: fixed; /* 背景图片固定不动 */
         }
-        .container {
-            background-color: rgba(255, 255, 255, 0.8); /* 半透明背景 */
-            padding: 20px;
-            border-radius: 10px;
-            text-align: left;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* 添加阴影效果 */
-            position: relative; /* 设置相对定位，以便添加动画 */
-        }
         .content {
             opacity: 0; /* 初始透明度为0 */
             animation: fadeInContent 2s ease-in-out 1s forwards; /* 动画延迟1秒后开始，持续2秒，最终状态为不透明 */
@@ -57,55 +49,83 @@
             margin-left: 10px; /* 设置职位和简介之间的间距 */
         }
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 0.8;
+            }
         }
-        @keyframes fadeInContent {
-            from { opacity: 0; }
-            to { opacity: 0.75; }
+        @media (max-width: 600px) {
+            .container {
+                width: 95%;
+            }
         }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        .main-content {
+            background: #fff;
+            padding: 20px;
+            box-sizing: border-box;
+            opacity: 0; /* 初始透明度为0 */
+            animation: fadeIn 2s ease-in-out forwards; /* 添加动画，并在动画结束后保持最终状态 */
+        }
+        .post {
+            margin-bottom: 20px;
+        }
+        .post h2 {
+            margin: 0;
+        }
+        .post p {
+            margin: 10px 0;
+        }
+        @media (max-width: 600px) {
+    .container {
+        width: 95%;
+    }
+}
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="content">
-            <br />
-            <h1>恭喜你发现了彩蛋</h1>
-            <h1>恭喜你发现了彩蛋</h1>
-            <h1>恭喜你发现了彩蛋</h1>
-            <h1>恭喜你发现了彩蛋</h1>
-            <h1>恭喜你发现了彩蛋</h1>
-            <h1>make team: KAHT</h1>
-            <h1>member: ES</h1>
-            <h1>How to prevent computers from being hacked</h1>
-            <h2># Beware of unknown files:</h2>
-            <h4>At present, there are various types of trojans and viruses that can run on Windows, Linux, iOS systems, and others. <br />It is well known that they can run through binary systems even without a system, so we need to be vigilant about unknown files.</h4>
-            <h4>The common Trojan virus suffix formats in Windows are: <br />. bat. dll. exe. docm. py. cpp. cs. vbs, and so on. The above is a small part, and sometimes images can also be Trojan viruses. Even others.</h4>
-            <h2># solution:</h2>
-            <h4>Do not download programs from unknown websites, perform sandbox scans on programs, observe program behavior (for suspicious processes),Analyze the file, <br>perform regular scans on computers, close useless ports, and so on.</h4>
-            <br />
-            <h1>Do not click on unknown websites:</h1>
-            <h2># Clicking on an unknown website may result in the following consequences:</h2>
-            <h4>Personal information leakage:<br>
-                Phishing website attack: some unknown websites may be phishing websites, which will masquerade as formal <br /> websites such as banks and payment platforms, and induce you to enter <br /> sensitive information such as account passwords and ID number. Once you enter, these information will be stolen by criminals.<br />
-                Malicious script stealing information: Hackers may inject malicious scripts into web pages, <br /> and when users access these tampered web pages, the scripts will automatically execute, stealing users' personal information, login credentials, etc.</h4>
-            <br />
-            <h5>Malicious software infection:                           <br />
-                Automatic download of malicious software: Some websites may exploit vulnerabilities in browsers or third-party software to automatically download and install malicious software, such as Trojan horses, ransomware, etc., after users click on links. Trojan programs allow hackers to remotely control your device, and ransomware encrypts your important files and demands payment of ransom to unlock them.<br />
-                System performance degradation: Even without significant data loss, malicious software can consume a large amount of resources, causing the computer to run slowly, resulting in browser crashes, instability, or automatic pop-up of advertising windows.<br /><br />
-                Financial losses:<br />
-                Account theft: After personal information is stolen, criminals may use this information to log in to your bank account, payment platform, etc., and perform transfer, consumption, and other operations, resulting in financial losses.<br />
-                Increased fraud risk: After criminals obtain your personal information, they may commit fraud against you, such as impersonating acquaintances, bank customer service, etc.<br /><br />
-                Spread of cybersecurity threats:<br />
-                Becoming a springboard for attacks: If your device is infected, it can not only harm yourself, but also become a springboard for attacking others, such as by sending spam or continuing to spread malicious code.<br />
-                Participate in DDoS attacks: Some malicious websites and IPs are associated with DDoS botnet trojans, and attackers can control infected devices to launch DDoS attacks on other systems or devices, causing critical information infrastructure or important network applications to be paralyzed.<br /><br />
-                Enterprise risk:<br />
-                Reputation loss: Enterprise employees clicking on unknown websites may result in information leakage or malware infection, which may affect the normal operation of the enterprise and damage its reputation.<br />
-                Legal liability: If a company fails to properly protect the personal information of customers or employees, it may face legal liability.</h5><br />
-            <h2># solution:</h2>
-            <h5>Do not click on unknown websites or websites without SSL certificates, or perform virtual machine testing on websites without SSL certificates. Scan and confirm before clicking.</h5><br />
-        
-            <h1>!!! Check if the host has executable vulnerabilities</h1>
+        <div class="main-content">
+            <div class="post">
+                <br />
+                <h1>make team: KAHT</h1>
+                <h1>member: ES</h1>
+                <h1>How to prevent computers from being hacked</h1>
+                <h2># Beware of unknown files:</h2>
+                <h4>At present, there are various types of trojans and viruses that can run on Windows, Linux, iOS systems, and others. <br />It is well known that they can run through binary systems even without a system, so we need to be vigilant about unknown files.</h4>
+                <h4>The common Trojan virus suffix formats in Windows are: <br />. bat. dll. exe. docm. py. cpp. cs. vbs, and so on. The above is a small part, and sometimes images can also be Trojan viruses. Even others.</h4>
+                <h2># solution:</h2>
+                <h4>Do not download programs from unknown websites, perform sandbox scans on programs, observe program behavior (for suspicious processes),Analyze the file, <br>perform regular scans on computers, close useless ports, and so on.</h4>
+                <br />
+                <h1>Do not click on unknown websites:</h1>
+                <h2># Clicking on an unknown website may result in the following consequences:</h2>
+                <h4>Personal information leakage:<br>
+                    Phishing website attack: some unknown websites may be phishing websites, which will masquerade as formal <br /> websites such as banks and payment platforms, and induce you to enter <br /> sensitive information such as account passwords and ID number. Once you enter, these information will be stolen by criminals.<br />
+                    Malicious script stealing information: Hackers may inject malicious scripts into web pages, <br /> and when users access these tampered web pages, the scripts will automatically execute, stealing users' personal information, login credentials, etc.</h4>
+                <br />
+                <h5>Malicious software infection:                           <br />
+                    Automatic download of malicious software: Some websites may exploit vulnerabilities in browsers or third-party software to automatically download and install malicious software, such as Trojan horses, ransomware, etc., after users click on links. Trojan programs allow hackers to remotely control your device, and ransomware encrypts your important files and demands payment of ransom to unlock them.<br />
+                    System performance degradation: Even without significant data loss, malicious software can consume a large amount of resources, causing the computer to run slowly, resulting in browser crashes, instability, or automatic pop-up of advertising windows.<br /><br />
+                    Financial losses:<br />
+                    Account theft: After personal information is stolen, criminals may use this information to log in to your bank account, payment platform, etc., and perform transfer, consumption, and other operations, resulting in financial losses.<br />
+                    Increased fraud risk: After criminals obtain your personal information, they may commit fraud against you, such as impersonating acquaintances, bank customer service, etc.<br /><br />
+                    Spread of cybersecurity threats:<br />
+                    Becoming a springboard for attacks: If your device is infected, it can not only harm yourself, but also become a springboard for attacking others, such as by sending spam or continuing to spread malicious code.<br />
+                    Participate in DDoS attacks: Some malicious websites and IPs are associated with DDoS botnet trojans, and attackers can control infected devices to launch DDoS attacks on other systems or devices, causing critical information infrastructure or important network applications to be paralyzed.<br /><br />
+                    Enterprise risk:<br />
+                    Reputation loss: Enterprise employees clicking on unknown websites may result in information leakage or malware infection, which may affect the normal operation of the enterprise and damage its reputation.<br />
+                    Legal liability: If a company fails to properly protect the personal information of customers or employees, it may face legal liability.</h5><br />
+                <h2># solution:</h2>
+                <h5>Do not click on unknown websites or websites without SSL certificates, or perform virtual machine testing on websites without SSL certificates. Scan and confirm before clicking.</h5><br />
+            
+                <h1>!!! Check if the host has executable vulnerabilities</h1>
+            </div>
         </div>
     </div>
 </body>
