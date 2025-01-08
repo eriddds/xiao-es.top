@@ -7,24 +7,25 @@
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <style>
         body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: #f4f4f4;
-            background-image: url('img/KAHTlogo.jpg'); /* 添加这一行 */
-            background-size: cover; /* 调整背景图片大小以覆盖整个页面 */
-            background-position: center; /* 调整背景图片位置 */
-            background-repeat: no-repeat; /* 防止背景图片重复 */
+            margin: 0;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+            background-image: url('img/KAHTlogo.jpg'); /* 添加背景图片 */
+            background-size: cover; /* 背景图片覆盖整个页面 */
+            background-position: center; /* 背景图片居中显示 */
+            animation: fadeIn 2s ease-in-out; /* 添加淡入动画 */
+            background-attachment: fixed; /* 背景图片固定，不随滚动条滚动 */
         }
         .container {
             width: 80%;
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
+            padding: 70px 20px 20px; /* 调整padding，确保内容区域不会覆盖导航栏 */
         }
         .column {
             width: 48%;
@@ -33,17 +34,21 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
             overflow: hidden;
-            transition: transform 0.3s ease, opacity 1s ease; /* 添加透明度过渡 */
-            opacity: 0.8; /* 添加这一行 */
+            transition: transform 0.3s ease, opacity 1s ease;
+            opacity: 0.8;
         }
         .column:hover {
             transform: translateY(-5px);
-            opacity: 1; /* 悬停时恢复完全不透明 */
+            opacity: 1;
         }
         .column img {
             width: 100%;
             height: 200px;
             object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        .column:hover img {
+            transform: scale(1.05);
         }
         .column .content {
             padding: 20px;
@@ -64,14 +69,15 @@
             left: 0;
             width: 100%;
             height: 50px;
-            background-color: rgba(0, 0, 0, 0.5); /* 改为半透明颜色 */
+            background-color: rgba(0, 0, 0, 0.8);
             display: flex;
             align-items: center;
             color: white;
             font-size: 16px;
             padding: 0 20px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            opacity: 0.9; /* 设置透明度为0.5 */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+            opacity: 1;
+            z-index: 10000000; /* 确保导航栏在最上层 */
         }
         .navbar h1 {
             margin: 0;
@@ -84,6 +90,37 @@
         }
         .navbar a:hover {
             text-decoration: underline;
+        }
+        .search-box {
+            margin-left: auto;
+            margin-right: 50px;
+            position: relative;
+        }
+        .search-box input {
+            padding: 10px 20px;
+            border: 2px solid #fff;
+            border-radius: 30px;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+        .search-box input:focus {
+            outline: none;
+            border-color: #0056b3;
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+        .search-box::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            background-image: url('search-icon.png');
+            background-size: contain;
+            background-repeat: no-repeat;
         }
         .button {
             display: inline-block;
@@ -123,20 +160,36 @@
         .my-button:hover {
             background-color: #0056b3;
         }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .container {
+                width: 90%;
+            }
+            .column {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+            .navbar {
+                font-size: 14px;
+            }
+            .search-box input {
+                font-size: 14px;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="navbar">
         <h1>KAHT</h1>
         <nav>
-            <!-- 导航栏 -->
             <a href="Enindex.html">Home</a>
-            <a href="#">Next Page</a>
-            <a href="#">Previous Page</a>
         </nav>
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Search...">
+        </div>
     </div>
-    <!-- 栏目 -->
-    <div class="container">
+    <div class="container" id="container">
         <div class="column">
             <img src="img/KAHT.jpg" alt="Image 1">
             <hr />
@@ -146,11 +199,11 @@
             </div>
         </div>
         <div class="column">
-            <img src="img/null.jpeg" alt="Image 1">
+            <img src="img/KAHTlogo.jpg" alt="Image 1">
             <hr />
             <div class="content">
-                <h3><a href="###">None</a></h3>
-                <p>xxxx-xx-xx</p>
+                <h3><a href="kahtupdates/2.html">Types of Computer Viruses</a></h3>
+                <p>2025-1-08</p>
             </div>
         </div>
         <div class="column">
@@ -170,7 +223,37 @@
             </div>
         </div>
     </div>
-<!-- <button class="button" style="position: fixed; top: 5px; right: 20px;" onclick="window.location.href='KA.html'"><span>中文</span></button> -->
+    <script>
+        document.getElementById('searchInput').addEventListener('input', async function() {
+            const searchTerm = this.value.toLowerCase();
+            const columns = document.querySelectorAll('.column');
+            columns.forEach(column => {
+                const title = column.querySelector('h3 a').textContent.toLowerCase();
+                if (title.includes(searchTerm)) {
+                    column.style.display = '';
+                    column.style.height = ''; // 恢复高度
+                } else {
+                    column.style.display = 'none';
+                    column.style.height = '0'; // 设置高度为0
+                }
+            });
+            await loadColumns(columns);
+        });
 
+        async function loadColumns(columns) {
+            const chunkSize = 4; // 每次加载4个栏目
+            for (let i = 0; i < columns.length; i += chunkSize) {
+                const chunk = Array.from(columns).slice(i, i + chunkSize);
+                await Promise.all(chunk.map(column => {
+                    return new Promise(resolve => {
+                        setTimeout(() => {
+                            column.style.opacity = '1';
+                            resolve();
+                        }, 100); // 每个栏目加载的延迟时间
+                    });
+                }));
+            }
+        }
+    </script>
 </body>
 </html>
