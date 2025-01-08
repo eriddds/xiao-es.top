@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sqlmap 参数列表</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            font-family: 'Noto Sans', Arial, sans-serif;
+            color: #333;
+            overflow-x: hidden; /* 防止动画导致横向滚动 */
+            background-image: url('img/sql.png'); /* Add background image */
+            background-attachment: fixed;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transform: translateY(-50px);
+            opacity: 0;
+            animation: fadeInDown 0.8s ease forwards;
+        }
+
+        h1 {
+            text-align: center;
+            color: #007bff;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+        }
+
+        .category-title {
+            font-size: 1.5em;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 5px;
+            color: #007bff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .category-title::before {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background-color: #007bff;
+            transition: width 0.3s ease;
+        }
+
+        .category-title:hover::before {
+            width: 100%;
+            left: 0;
+        }
+
+        .parameter {
+            margin-bottom: 20px;
+            padding: 10px;
+            border-left: 4px solid #007bff;
+            background-color: #e9ecef;
+            border-radius: 4px;
+            transform: translateX(-20px);
+            opacity: 0;
+            animation: slideIn 0.5s ease forwards;
+            animation-delay: calc(0.1s * var(--i));
+        }
+
+        .parameter-name {
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-bottom: 5px;
+            color: #0056b3;
+        }
+
+        .parameter-description {
+            font-size: 0.9em;
+            line-height: 1.5;
+            color: #6c757d;
+        }
+
+        .parameter-description strong {
+            color: #333;
+        }
+
+        .parameter:last-child {
+            margin-bottom: 0;
+        }
+
+        /* 动画定义 */
+        @keyframes fadeInDown {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(-20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        /* 返回顶部按钮样式 */
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-to-top:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">sqlmap 渗透测试参数列表（基础）</h1>
+        <div class="category-title">Options</div>
+        <div class="parameter">
+            <div class="parameter-name">--wizard</div>
+            <div class="parameter-description">适合初学者用户的简单向导界面</div>
+        </div><div class="parameter">
+            <div class="parameter-name">-h,--help</div>
+            <div class="parameter-description">显示基础帮助信息</div>
+        </div><div class="parameter">
+            <div class="parameter-name">-hh</div>
+            <div class="parameter-description">显示高级帮助信息</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--version</div>
+            <div class="parameter-description">显示版本信息</div>
+        </div><div class="parameter">
+            <div class="parameter-name">-v</div>
+            <div class="parameter-description">输出信息的级别 0-6（默认为1）</div>
+        </div><div class="category-title">Target</div>
+        <div class="parameter">
+            <div class="parameter-name">-u URL, --url=URL</div>
+            <div class="parameter-description">目标url (e.g. "http://www.site.com/vuln.php?id=1")</div>
+        </div><div class="parameter">
+            <div class="parameter-name">-d DIRECT</div>
+            <div class="parameter-description">用于直接数据库连接的连接字符串</div>
+        </div><div class="parameter">
+            <div class="parameter-name">-l LOGFILE</div>
+            <div class="parameter-description">从Burp或WebScarab代理日志文件解析目标</div>
+        </div><div class="parameter">
+            <div class="parameter-name">-m BULKFILE</div>
+            <div class="parameter-description">扫描文本文件中给定的多个目标</div>
+        </div><div class="parameter">
+            <div class="parameter-name">-r REQUESTFILE</div>
+            <div class="parameter-description">从文件加载HTTP请求</div>
+        </div><div class="parameter">
+            <div class="parameter-name">-g GOOGLEDORK</div>
+            <div class="parameter-description">将谷歌结果处理为目标url</div>
+        </div><div class="parameter">
+            <div class="parameter-name">-c CONFIGFILE</div>
+            <div class="parameter-description">从INI配置文件加载选项</div>
+        </div><div class="category-title">Request</div><div class="parameter">
+            <div class="parameter-name">-A AGENT, --user..</div>
+            <div class="parameter-description">指定HTTP请求 User-Agent 报头值</div>
+        </div><div class="parameter">
+            <div class="parameter-name">-H HEADER, --hea..</div>
+            <div class="parameter-description">其他header (e.g. "X-Forwarded-For: 127.0.0.1")</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--method=METHOD</div>
+            <div class="parameter-description">强制使用给定的HTTP方法(e.g. PUT)</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--data=DATA</div>
+            <div class="parameter-description">通过POST发送的数据字符串 (e.g. "id=1")</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--param-del=PARA..</div>
+            <div class="parameter-description">用于分割参数值的字符 (e.g. &)</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--cookie=COOKIE</div>
+            <div class="parameter-description">HTTP Cookie 报头值 (e.g. "PHPSESSID=a8d127e..")</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--cookie-del=COO..</div>
+            <div class="parameter-description">用于分割cookie值的字符 (e.g. ;)</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--load-cookies=L..</div>
+            <div class="parameter-description">包含Netscape/wget格式cookies的文件</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--drop-set-cookie</div>
+            <div class="parameter-description">忽略响应中的Set-Cookie头</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--mobile</div>
+            <div class="parameter-description">通过HTTP User-Agent 头模拟智能手机</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--random-agent</div>
+            <div class="parameter-description">使用随机选择的HTTP用户代理头值</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--host=HOST</div>
+            <div class="parameter-description">HTTP Host header value</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--referer=REFERER</div>
+            <div class="parameter-description">HTTP Referer header value</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--headers=HEADERS</div>
+            <div class="parameter-description">额外的 headers (e.g. "Accept-Language: frETag: 123")</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--auth-type=AUTH..</div>
+            <div class="parameter-description">HTTP身份验证类型 (Basic, Digest, NTLM or PKI)</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--auth-cred=AUTH..</div>
+            <div class="parameter-description">HTTP身份验证凭证 (name:password)</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--auth-file=AUTH..</div>
+            <div class="parameter-description">HTTP身份验证PEM证书/私钥文件</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--ignore-code=IG..</div>
+            <div class="parameter-description">忽略(有问题的)HTTP错误代码 (e.g. 401)</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--ignore-proxy</div>
+            <div class="parameter-description">忽略系统默认代理设置</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--ignore-redirects</div>
+            <div class="parameter-description">忽略重定向的尝试</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--ignore-timeouts</div>
+            <div class="parameter-description">忽略连接超时</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--proxy=PROXY</div>
+            <div class="parameter-description">使用代理连接到目标URL</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--proxy-cred=PRO..</div>
+            <div class="parameter-description">代理身份验证凭证 (name:password)</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--proxy-file=PRO..</div>
+            <div class="parameter-description">从文件加载代理列表</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--tor</div>
+            <div class="parameter-description">使用Tor匿名网络</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--tor-port=TORPORT</div>
+            <div class="parameter-description">设置Tor代理端口以外的默认</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--tor-type=TORTYPE</div>
+            <div class="parameter-description">设置Tor代理类型(HTTP, SOCKS4或SOCKS5(default))</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--check-tor</div>
+            <div class="parameter-description">检查Tor是否正确使用</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--delay=DELAY</div>
+            <div class="parameter-description">每个HTTP请求之间的延迟(秒)</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--timeout=TIMEOUT</div>
+            <div class="parameter-description">等待超时连接秒 (default 30)</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--retries=RETRIES</div>
+            <div class="parameter-description">当连接超时时重试 (default 3)</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--randomize=RPARAM</div>
+            <div class="parameter-description">随机改变给定参数的值</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--safe-url=SAFEURL</div>
+            <div class="parameter-description">测试期间经常访问的URL地址</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--safe-post=SAFE..</div>
+            <div class="parameter-description">POST数据发送到一个安全的URL</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--safe-req=SAFER..</div>
+            <div class="parameter-description">从文件加载安全的HTTP请求</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--safe-freq=SAFE..</div>
+            <div class="parameter-description">访问安全URL之间的定期请求</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--skip-urlencode</div>
+            <div class="parameter-description">跳过有效负载数据的URL编码</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--csrf-token=CSR..</div>
+            <div class="parameter-description">用于保存反csrf令牌的参数</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--csrf-url=CSRFURL</div>
+            <div class="parameter-description">提取反csrf令牌访问的URL地址</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--csrf-method=CS..</div>
+            <div class="parameter-description">在反csrf令牌页面访问期间使用的HTTP方法</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--csrf-retries=C..</div>
+            <div class="parameter-description">重新尝试获取反csrf令牌 (default 0)</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--force-ssl</div>
+            <div class="parameter-description">强制使用SSL/HTTPS</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--chunked</div>
+            <div class="parameter-description">使用HTTP分块传输编码 (POST) 请求</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--hpp</div>
+            <div class="parameter-description">使用HTTP参数污染方法</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--eval=EVALCODE</div>
+            <div class="parameter-description">在请求之前评估提供的Python代码 (e.g. "import hashlib;id2=hashlib.md5(id).hexdigest()")</div>
+        </div><div class="category-title">Optimization</div><div class="parameter">
+            <div class="parameter-name">-o</div>
+            <div class="parameter-description">打开所有优化开关</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--predict-output</div>
+            <div class="parameter-description">预测常见查询输出</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--keep-alive</div>
+            <div class="parameter-description">使用持久HTTP连接</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--null-connection</div>
+            <div class="parameter-description">检索页面长度，而不需要实际的HTTP响应体</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--threads=THREADS</div>
+            <div class="parameter-description">最大并发HTTP请求数 (默认为1)</div>
+        </div><div class="category-title">Injection</div><div class="parameter">
+            <div class="parameter-name">-p TESTPARAMETER</div>
+            <div class="parameter-description">可测试的参数</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--skip=SKIP</div>
+            <div class="parameter-description">跳过给定参数的测试</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--skip-static</div>
+            <div class="parameter-description">跳过看起来不是动态的测试参数</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--param-exclude=..</div>
+            <div class="parameter-description">Regexp从测试中排除参数 (e.g. "ses")</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--param-filter=P..</div>
+            <div class="parameter-description">按位置选择可测试参数 (e.g. "POST")</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--dbms=DBMS</div>
+            <div class="parameter-description">强制后端DBMS为提供的值</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--dbms-cred=DBMS..</div>
+            <div class="parameter-description">DBMS身份验证凭证 (user:password)</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--os=OS</div>
+            <div class="parameter-description">强制后端DBMS操作系统为提供的值</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--invalid-bignum</div>
+            <div class="parameter-description">使用大的数字使值无效</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--invalid-logical</div>
+            <div class="parameter-description">使用逻辑运算来使值无效</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--invalid-string</div>
+            <div class="parameter-description">使用随机字符串使值无效</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--no-cast</div>
+            <div class="parameter-description">关闭有效载荷投放机制</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--no-escape</div>
+            <div class="parameter-description">关闭字符串转义机制</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--prefix=PREFIX</div>
+            <div class="parameter-description">注入有效载荷前缀字符串</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--suffix=SUFFIX</div>
+            <div class="parameter-description">注入有效载荷后缀字符串</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--tamper=TAMPER</div>
+            <div class="parameter-description">使用给定的脚本篡改注入数据</div>
+        </div><div class="category-title">Detection</div><div class="parameter">
+            <div class="parameter-name">--level=LEVEL</div>
+            <div class="parameter-description">要执行的测试级别 (1-5, default 1)</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--risk=RISK</div>
+            <div class="parameter-description">进行测试的风险 (1-3, default 1)</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--string=STRING</div>
+            <div class="parameter-description">查询评估为True时匹配的字符串</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--not-string=NOT..</div>
+            <div class="parameter-description">查询评估为False时要匹配的字符串</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--regexp=REGEXP</div>
+            <div class="parameter-description">正则表达式在查询评估为True时匹配</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--code=CODE</div>
+            <div class="parameter-description">查询评估为True时要匹配的HTTP代码</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--smart</div>
+            <div class="parameter-description">仅在启发式为正的情况下执行全面测试</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--text-only</div>
+            <div class="parameter-description">仅根据文本内容比较页面</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--titles</div>
+            <div class="parameter-description">仅根据标题比较页面</div>
+        </div><div class="category-title">Techniques</div><div class="parameter">
+            <div class="parameter-name">--technique=TECH..</div>
+            <div class="parameter-description">使用的SQL注入技术 (default "BEUSTQ")</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--time-sec=TIMESEC</div>
+            <div class="parameter-description">延迟DBMS响应的秒数 (default 5)</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--union-cols=UCOLS</div>
+            <div class="parameter-description">要测试UNION查询SQL注入的列范围</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--union-char=UCHAR</div>
+            <div class="parameter-description">用于暴力破解列数的字符</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--union-from=UFROM</div>
+            <div class="parameter-description">在UNION查询SQL注入的FROM部分中使用的表</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--dns-domain=DNS..</div>
+            <div class="parameter-description">用于DNS渗透攻击的域名</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--second-url=SEC..</div>
+            <div class="parameter-description">搜索结果页面URL以获取二阶响应</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--second-req=SEC..</div>
+            <div class="parameter-description">从文件加载二阶HTTP请求</div>
+        </div><div class="category-title">Fingerprint</div><div class="parameter">
+            <div class="parameter-name">-f,--fingerprint</div>
+            <div class="parameter-description">执行广泛的DBMS版本指纹</div>
+        </div><div class="category-title">Enumeration</div><div class="parameter">
+            <div class="parameter-name">-a, --all</div>
+            <div class="parameter-description">检索所有内容</div>
+        </div><div class="parameter">
+            <div class="parameter-name">-b, --banner</div>
+            <div class="parameter-description">检索 DBMS banner</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--current-user</div>
+            <div class="parameter-description">检索 DBMS 当前用户</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--current-db</div>
+            <div class="parameter-description">检索 DBMS 当前数据库</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--hostname</div>
+            <div class="parameter-description">检索 DBMS 服务器主机名</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--is-dba</div>
+            <div class="parameter-description">检测 DBMS 当前用户是否为 DBA</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--users</div>
+            <div class="parameter-description">枚举 DBMS 用户</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--passwords</div>
+            <div class="parameter-description">枚举 DBMS 用户密码哈希</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--privileges</div>
+            <div class="parameter-description">枚举 DBMS 用户权限</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--roles</div>
+            <div class="parameter-description">枚举 DBMS 用户角色</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--dbs</div>
+            <div class="parameter-description">枚举 DBMS 数据库</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--tables</div>
+            <div class="parameter-description">枚举 DBMS 数据库表</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--columns</div>
+            <div class="parameter-description">枚举 DBMS 数据库表列</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--schema</div>
+            <div class="parameter-description">枚举 DBMS 架构</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--count</div>
+            <div class="parameter-description">检索表的条目数</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--dump</div>
+            <div class="parameter-description">转储 DBMS 数据库表条目</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--dump-all</div>
+            <div class="parameter-description">转储所有 DBMS 数据库表表条目</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--search</div>
+            <div class="parameter-description">搜索列、表 和/或 数据库名称</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--comments</div>
+            <div class="parameter-description">在枚举期间检查 DBMS 注释</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--statements</div>
+            <div class="parameter-description">检索在 DBMS 上运行的 SQL 语句</div>
+        </div><div class="parameter">
+            <div class="parameter-name">-D DB</div>
+            <div class="parameter-description">要枚举的 DBMS 数据库</div>
+        </div><div class="parameter">
+            <div class="parameter-name">-T TBL</div>
+            <div class="parameter-description">要枚举的 DBMS 数据库表</div>
+        </div><div class="parameter">
+            <div class="parameter-name">-C COL</div>
+            <div class="parameter-description">要枚举的 DBMS 数据库表列</div>
+        </div><div class="parameter">
+            <div class="parameter-name">-X EXCLUDE</div>
+            <div class="parameter-description">要不枚举的 DBMS 数据库标识符</div>
+        </div><div class="parameter">
+            <div class="parameter-name">-U USER</div>
+            <div class="parameter-description">要枚举的 DBMS 用户</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--exclude-sysdbs</div>
+            <div class="parameter-description">枚举表时排除 DBMS 系统数据库</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--pivot-column=P..</div>
+            <div class="parameter-description">数据透视列名称</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--where=DUMPWHERE</div>
+            <div class="parameter-description">表转储时使用 WHERE 条件</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--start=LIMITSTART</div>
+            <div class="parameter-description">要检索的第一个转储表条目</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--stop=LIMITSTOP</div>
+            <div class="parameter-description">要检索的最后一个转储表条目</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--first=FIRSTCHAR</div>
+            <div class="parameter-description">要检索的第一个查询输出单词字符</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--last=LASTCHAR</div>
+            <div class="parameter-description">要检索的最后一个查询输出单词字符</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--sql-query=SQLQ..</div>
+            <div class="parameter-description">要执行的 SQL 语句</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--sql-shell</div>
+            <div class="parameter-description">交互式 SQL 外壳的提示</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--sql-file=SQLFILE</div>
+            <div class="parameter-description">从给定文件执行 SQL 语句</div>
+        </div><div class="category-title">Brute force</div><div class="parameter">
+            <div class="parameter-name">--common-tables</div>
+            <div class="parameter-description">检查是否存在公共表</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--common-columns</div>
+            <div class="parameter-description">检查是否存在公共列</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--common-files</div>
+            <div class="parameter-description">检查是否存在通用文件</div>
+        </div><div class="category-title">User-defined function injection</div><div class="parameter">
+            <div class="parameter-name">--udf-inject</div>
+            <div class="parameter-description">注入用户自定义的函数</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--shared-lib=SHLIB</div>
+            <div class="parameter-description">共享库的本地路径</div>
+        </div><div class="category-title">File system access</div><div class="parameter">
+            <div class="parameter-name">--file-read=FILE..</div>
+            <div class="parameter-description">从后端 DBMS 文件系统读取文件</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--file-write=FIL..</div>
+            <div class="parameter-description">在端到端 DBMS 文件系统上写入本地文件</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--file-dest=FILE..</div>
+            <div class="parameter-description">要写入的端到端 DBMS 绝对文件路径</div>
+        </div><div class="category-title">Operating system access</div><div class="parameter">
+            <div class="parameter-name">--os-cmd=OSCMD</div>
+            <div class="parameter-description">执行操作系统命令</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--os-shell</div>
+            <div class="parameter-description">交互式操作系统外壳的提示</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--os-pwn</div>
+            <div class="parameter-description">提示 OOB shell, Meterpreter or VNC</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--os-smbrelay</div>
+            <div class="parameter-description">一键提示 OOB shell, Meterpreter or VNC</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--os-bof</div>
+            <div class="parameter-description">存储过程缓冲区溢出利用</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--priv-esc</div>
+            <div class="parameter-description">数据库进程用户权限升级</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--msf-path=MSFPATH</div>
+            <div class="parameter-description">安装 Metasploit 框架的本地路径</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--tmp-path=TMPPATH</div>
+            <div class="parameter-description">临时文件目录的远程绝对路径</div>
+        </div><div class="category-title">Windows registry access</div><div class="parameter">
+            <div class="parameter-name">--reg-read</div>
+            <div class="parameter-description">读取 Windows 注册表项值</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--reg-add</div>
+            <div class="parameter-description">写入 Windows 注册表项值数据</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--reg-del</div>
+            <div class="parameter-description">删除 Windows 注册表项值</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--reg-key=REGKEY</div>
+            <div class="parameter-description">Windows 注册表项</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--reg-value=REGVAL</div>
+            <div class="parameter-description">Windows 注册表密钥值</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--reg-data=REGDATA</div>
+            <div class="parameter-description">Windows 注册表密钥值数据</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--reg-type=REGTYPE</div>
+            <div class="parameter-description">Windows 注册表键值类型</div>
+        </div><div class="category-title">General</div><div class="parameter">
+            <div class="parameter-name">-s SESSIONFILE</div>
+            <div class="parameter-description">从存储的（.sqlite）文件加载会话</div>
+        </div><div class="parameter">
+            <div class="parameter-name">-t TRAFFICFILE</div>
+            <div class="parameter-description">将所有 HTTP 流量记录到文本文件中</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--answers=ANSWERS</div>
+            <div class="parameter-description">设置预定义answers (e.g. "quit=N,follow=N")</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--base64=BASE64P..</div>
+            <div class="parameter-description">包含 Base64 编码数据的参数</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--base64-safe</div>
+            <div class="parameter-description">使用 URL 和文件名安全 Base64 字母表</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--batch</div>
+            <div class="parameter-description">从不要求用户输入，使用默认行为</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--binary-fields=..</div>
+            <div class="parameter-description">具有二进制值的结果字段 (e.g. "digest")</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--check-internet</div>
+            <div class="parameter-description">在评估目标之前检查互联网连接</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--cleanup</div>
+            <div class="parameter-description">从 sqlmap 特定的 UDF 和表清理 DBMS</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--crawl=CRAWLDEPTH</div>
+            <div class="parameter-description">从目标 URL 开始抓取网站</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--crawl-exclude=..</div>
+            <div class="parameter-description">regexp从爬网中排除页面 (e.g. "logout")</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--csv-del=CSVDEL</div>
+            <div class="parameter-description">CSV 输出中使用的分隔字符 (default ",")</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--charset=CHARSET</div>
+            <div class="parameter-description">盲 SQL 注入字符集 (e.g. "0123456789abcdef")</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--dump-format=DU..</div>
+            <div class="parameter-description">转储数据的格式 (CSV (default), HTML or SQLITE)</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--encoding=ENCOD..</div>
+            <div class="parameter-description">用于数据检索的字符编码 (e.g. GBK)</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--eta</div>
+            <div class="parameter-description">显示每个输出的估计到达时间</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--flush-session</div>
+            <div class="parameter-description">刷新当前目标的会话文件</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--forms</div>
+            <div class="parameter-description">在目标 URL 上解析和测试表单</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--fresh-queries</div>
+            <div class="parameter-description">忽略存储在会话文件中的查询结果</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--gpage=GOOGLEPAGE</div>
+            <div class="parameter-description">使用来自指定页号的 Google dork 结果</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--har=HARFILE</div>
+            <div class="parameter-description">将所有 HTTP 流量记录到 HAR 文件中</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--hex</div>
+            <div class="parameter-description">在数据检索期间使用十六进制转换</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--output-dir=OUT..</div>
+            <div class="parameter-description">自定义输出目录路径</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--parse-errors</div>
+            <div class="parameter-description">分析并显示来自响应的 DBMS 错误消息</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--preprocess=PRE..</div>
+            <div class="parameter-description">使用给定的脚本预处理响应数据</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--repair</div>
+            <div class="parameter-description">具有未知字符标记的Redump条目</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--save=SAVECONFIG</div>
+            <div class="parameter-description">将选项保存到配置 INI 文件</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--scope=SCOPE</div>
+            <div class="parameter-description">用于筛选目标的 Regexp</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--skip-waf</div>
+            <div class="parameter-description">跳过 WAF/IPS 保护的启发式检测</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--table-prefix=T..</div>
+            <div class="parameter-description">用于临时表的前缀 (default: "sqlmap")</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--test-filter=TE..</div>
+            <div class="parameter-description">按有效负载 和/或 标题选择测试 (e.g. ROW)</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--test-skip=TEST..</div>
+            <div class="parameter-description">按有效负载 和/或 标题跳过测试 (e.g. BENCHMARK)</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--web-root=WEBROOT</div>
+            <div class="parameter-description">Web 服务器文档根目录 (e.g. "/var/www")</div>
+        </div><div class="category-title">Miscellaneous</div><div class="parameter">
+            <div class="parameter-name">-z MNEMONICS</div>
+            <div class="parameter-description">使用短的分音 (e.g. "flu,bat,ban,tec=EU")</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--alert=ALERT</div>
+            <div class="parameter-description">找到 SQL 注入时运行主机 OS 命令</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--beep</div>
+            <div class="parameter-description">问题 和/或 找到 SQL 注入时发出蜂鸣音</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--dependencies</div>
+            <div class="parameter-description">检查缺少（可选）sqlmap 依赖项</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--disable-coloring</div>
+            <div class="parameter-description">禁用控制台输出着色</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--list-tampers</div>
+            <div class="parameter-description">显示可用篡改脚本的列表</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--offline</div>
+            <div class="parameter-description">脱机模式下工作（仅使用会话数据）</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--purge</div>
+            <div class="parameter-description">安全地从 sqlmap 数据目录中删除所有内容</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--results-file=R..</div>
+            <div class="parameter-description">CSV 结果文件在多个目标模式下的位置</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--sqlmap-shell</div>
+            <div class="parameter-description">交互式 sqlmap 外壳的提示</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--tmp-dir=TMPDIR</div>
+            <div class="parameter-description">用于存储临时文件的本地目录</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--unstable</div>
+            <div class="parameter-description">调整不稳定连接的选项</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--update</div>
+            <div class="parameter-description">更新 sqlmap</div>
+        </div><div class="parameter">
+            <div class="parameter-name">--wizard</div>
+            <div class="parameter-description">适合初学者用户的简单向导界面</div>
+        </div>
+    </div>
+
+    <!-- 返回顶部按钮 -->
+    <button class="back-to-top" onclick="scrollToTop()">
+        <i class="bi bi-arrow-up">返回顶部</i>
+    </button>
+
+    <script>
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // 可选：当页面滚动超过一定距离时显示返回顶部按钮
+        window.addEventListener('scroll', () => {
+            const backToTopButton = document.querySelector('.back-to-top');
+            if (window.pageYOffset > 100) {
+                backToTopButton.style.display = 'block';
+            } else {
+                backToTopButton.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

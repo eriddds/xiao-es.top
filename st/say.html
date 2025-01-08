@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>意见与信息</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            background-image: url('img/faaabaed-eaba-4427-8081-77e210ed4cc3.jpg'); /* Add background image */
+            background-size: cover; /* Cover the entire page with the background image */
+            background-attachment: fixed; /* Fix the background image position while scrolling */
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+        #oe{
+            color: #ff0000;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>意见与信息</h1>
+        <form action="mailto:kahtes@163.com" method="post" enctype="text/plain">
+            <input type="hidden" name="subject" value="意见与信息">
+            <label for="name">姓名/网名:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">你的电子邮件:</label>
+            <input type="email" id="email" name="email" required>
+            <p>请输入你要投稿的内容<br />e.g.<br /> [投稿/建议]sqlmap一个[图形化/终端]程序可以进行什么什么操作<br />使用的基本参数搜索-u 指定url等待</p>
+            <label for="message">意见和建议:</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+            <p id="oe">如果提交失败或其他原因，也可以自行填写邮箱发送。<br />请发送至kahtes@163.com</p>
+            <p>格式：<br />姓名/网名:[自行填写]<br />你的电子邮件：[自行填写]<br />意见和建议: [自行填写]</p>
+            <button type="submit">提交</button>
+        </form>
+    </div>
+</body>
+</html>

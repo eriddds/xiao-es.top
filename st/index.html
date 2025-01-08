@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Types of Computer Viruses</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            background-image: url('img/faaabaed-eaba-4427-8081-77e210ed4cc3.jpg'); /* Add background image */
+            background-size: cover; /* Cover the entire page with the background image */
+            background-attachment: fixed; /* Fix the background image position while scrolling */
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        h1 {
+            margin: 0;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        .main-content {
+            background: #fff;
+            padding: 20px;
+            box-sizing: border-box;
+            opacity: 0; /* Initial opacity is 0 */
+            animation: fadeIn 3s ease-in-out forwards; /* Add animation and keep the final state after animation */
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 0.9;
+            }
+        }
+        .post {
+            margin-bottom: 20px;
+        }
+        .post h2 {
+            margin: 0;
+        }
+        .post p {
+            margin: 10px 0;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            bottom: 0;
+            width: 100%;
+        }
+        @media (max-width: 600px) {
+            .container {
+                width: 95%;
+            }
+        }
+        .post ul li a {
+            float: right; /* Move the link to the right */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>渗透测试脚本和工具</h1>
+    </header>
+    <div class="container">
+        <div class="main-content">
+            <div class="post">
+                <h3>contents:</h3>
+                <a href="say.html">投稿/推荐 更多脚本程序|Submit/recommend more script programs</a>
+                <ol>
+                    <li><p>None</p></li>
+                </ol>
+                <br />
+                <h1>渗透测试脚本和工具</h1>
+                <h2>测试工具</h2>
+                <ul>
+                    <li>afrog - 一款快速、稳定的高性能漏洞扫描器。                                                                <a href="afrog.html" target="_blank">使用文档</a><a href="https://github.com/zan8in/afrog" target="_blank">前往官网</a></li>
+                    <li>xray - 一款完善的安全评估工具，支持常见 web 安全问题扫描。                                                 <a href="xary.html" target="_blank">使用文档</a><a href="https://xray.cool/" target="_blank">前往官网</a></li>
+                    <li>nuclei - 使用零误报的定制模板对主机进行批量快速扫描。                                                      <a href="nuclei.html" target="_blank">使用文档</a><a href="https://nuclei.projectdiscovery.io/" target="_blank">前往官网</a></li>
+                    <li>pocsuite3 - 由知道创宇404团队开发的开源远程漏洞测试框架。                                                  <a href="None.html" target="_blank">使用文档</a><a href="https://pocsuite.org/" target="_blank">前往官网</a></li>
+                    <li>POC-bomber - 利用大量高威胁poc/exp快速获取目标权限，用于渗透和红队快速打点。                                <a href="None.html" target="_blank">使用文档</a><a href="https://github.com/tr0uble-mAker/POC-bomber" target="_blank">前往官网</a></li>
+                    <li>GitHack - .git泄露利用测试脚本，通过泄露的文件，还原重建工程源代码。                                        <a href="None.html" target="_blank">使用文档</a><a href="https://github.com/lijiejie/GitHack" target="_blank">前往官网</a></li>
+                    <li>IIS_shortname_Scanner - 利用短文件名漏洞进行文件探测的扫描器。                                            <a href="None.html" target="_blank">使用文档</a><a href="https://github.com/lijiejie/IIS_shortname_Scanner" target="_blank">前往官网</a></li>
+                    <li>Cr3dOv3r - 一款开源的密码泄露数据收集工具，支持从多个数据泄露源收集泄露的用户名和密码。                       <a href="None.html" target="_blank">使用文档</a><a href="https://github.com/D4Vinci/Cr3dOv3r" target="_blank">前往官网</a></li>
+                    <li>Metasploit - 渗透测试框架，拥有庞大的编程员爱好者群体，可以测试众多操作系统和应用程序中存在的安全漏洞。        <a href="None.html" target="_blank">使用文档</a><a href="https://www.metasploit.com/" target="_blank">前往官网</a></li>
+                    <li>Nmap - 网络发现和攻击界面测绘的首选工具，用于主机发现、端口扫描、操作系统检测等。                             <a href="None.html" target="_blank">使用文档</a><a href="https://nmap.org/" target="_blank">前往官网</a></li>
+                    <li>Burp Suite - 一款应用测试工具，适合核心评估。                                                             <a href="None.html" target="_blank">使用文档</a><a href="https://portswigger.net/" target="_blank">前往官网</a></li>
+                    <li>OWASP ZAP - 与Burp Suite相提并论的应用测试工具，适合应用安全新手。                                         <a href="None.html" target="_blank">使用文档</a><a href="https://www.zaproxy.org/ " target="_blank">前往官网</a></li>
+                    <li>SQLmap - 自动化SQL注入和数据库接管工具，支持所有常见数据库平台。                                            <a href="sqlmap.html" target="_blank">使用文档</a><a href="https://sqlmap.org/" target="_blank">前往官网</a></li>
+                    <li>Cobalt Strike - 渗透测试工具，集成了端口转发、服务扫描，自动化溢出等功能。                                  <a href="None.html" target="_blank">使用文档</a><a href="https://www.fortra.com/product-lines/cobalt-strike" target="_blank">前往官网</a></li>
+                    <li>CME(CrackMapExec) - 后漏洞利用工具，可帮助自动化大型活动目录(AD)网络安全评估任务。                          <a href="None.html" target="_blank">使用文档</a><a href="https://github.com/Porchetta-Industries/CrackMapExec" target="_blank">前往官网</a></li>
+                    <li>Impacket - Python类库，用于对SMB1-3或 IPv4 / IPv6 上的TCP、UDP、ICMP、IGMP和ARP之类的协议进行低级编程访问。 <a href="None.html" target="_blank">使用文档</a><a href="https://github.com/fortra/impacket" target="_blank">前往官网</a></li>
+                    <li>PowerSploit - 一系列模块的集合，用于Windows上的PowerShell，功能包括驻留、杀软规避、渗漏、代码执行等。        <a href="None.html" target="_blank">使用文档</a><a href="https://github.com/PowerShellMafia/PowerSploit" target="_blank">前往官网</a></li>
+                    <li>BeEF(浏览器漏洞利用框架) - 利用客户端攻击方法，评估目标环境切实安全状态的工具。                              <a href="None.html" target="_blank">使用文档</a><a href="https://beefproject.com/" target="_blank">前往官网</a></li>
+                    <li>THC-Hydra - 网络登录破解器，支持多个服务。                                                               <a href="None.html" target="_blank">使用文档</a><a href="https://github.com/vanhauser-thc/thc-hydra " target="_blank">前往官网</a></li>
+                    <li>社会工程工具箱(SET) - 面向社会工程的渗透测试框架。                                                        <a href="None.html" target="_blank">使用文档</a><a href="https://github.com/trustedsec/social-engineer-toolkit " target="_blank">前往官网</a></li>
+                    <li>Aircrack-ng - 无线渗透测试领域的重量级选手，提供了一整套工具和功能，专注于Wi-Fi安全的各个领域。              <a href="None.html" target="_blank">使用文档</a><a href="https://www.aircrack-ng.org/" target="_blank">前往官网</a></li>
+                    <li>fscan - 一款用于内网扫描和侦察的工具。                                                                   <a href="None.html" target="_blank">使用文档</a><a href="https://github.com/shadow1ng/fscan" target="_blank">前往官网</a></li>
+                    <li>Godzilla - 一款用于Web应用渗透测试的工具。                                                               <a href="None.html" target="_blank">使用文档</a><a href="https://github.com/BeichenDream/Godzilla" target="_blank">前往官网</a></li>
+                    <li>LaZagne - 一款用于收集密码和凭证的工具。                                                                 <a href="None.html" target="_blank">使用文档</a><a href="https://github.com/AlessandroZ/LaZagne" target="_blank">前往官网</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>ES &copy; 2025 KAHT</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>afrog漏洞扫描器参数</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+            background-image: url('img/faaabaed-eaba-4427-8081-77e210ed4cc3.jpg'); /* Add background image */
+            background-attachment: fixed;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .section h2 {
+            color: #007BFF;
+            border-bottom: 2px solid #007BFF;
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+        }
+        .section ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .section li {
+            background: #f9f9f9;
+            padding: 10px;
+            margin-bottom: 5px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .section li:hover {
+            background: #e9e9e9;
+        }
+        .section li strong {
+            color: #007BFF;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>afrog漏洞扫描器参数</h1>
+        <div class="section">
+            <h2>目标参数</h2>
+            <ul>
+                <li><strong>-t, -target string[]</strong>：指定要扫描的目标URL/主机，多个目标用逗号分隔</li>
+                <li><strong>-T, -target-file string</strong>：指定包含要扫描的目标URL/主机列表的文件，每行一个目标</li>
+            </ul>
+        </div>
+        <div class="section">
+            <h2>PoC参数</h2>
+            <ul>
+                <li><strong>-P, -poc-file string</strong>：指定要扫描的PoC文件或目录</li>
+                <li><strong>-ap, -append-poc string[]</strong>：附加要扫描的PoC文件或目录，多个用逗号分隔</li>
+                <li><strong>-pd, -poc-detail string</strong>：显示afrog-pocs的详细信息</li>
+                <li><strong>-pl, -poc-list</strong>：显示afrog-pocs列表</li>
+                <li><strong>-ep, -exclude-pocs string[]</strong>：从扫描中排除的pocs，用逗号分隔</li>
+                <li><strong>-epf, -exclude-pocs-file string</strong>：从扫描中排除的pocs列表文件</li>
+            </ul>
+        </div>
+        <div class="section">
+            <h2>输出参数</h2>
+            <ul>
+                <li><strong>-o, -output string</strong>：将结果写入HTML文件，包括所有漏洞结果</li>
+                <li><strong>-j, -json string</strong>：将结果写入JSON文件，但不包括请求和响应内容</li>
+                <li><strong>-ja, -json-all string</strong>：将结果写入JSON文件，包括所有漏洞结果</li>
+                <li><strong>-doh, -disable-output-html</strong>：禁用自动生成HTML报告（优先级高于-o命令）</li>
+            </ul>
+        </div>
+        <div class="section">
+            <h2>过滤参数</h2>
+            <ul>
+                <li><strong>-s, -search string</strong>：通过关键词搜索PoC，例如：-s tomcat,phpinfo</li>
+                <li><strong>-S, -severity string</strong>：根据严重性运行pocs，支持：info, low, medium, high, critical, unknown</li>
+            </ul>
+        </div>
+        <div class="section">
+            <h2>速率限制参数</h2>
+            <ul>
+                <li><strong>-rl, -rate-limit int</strong>：每秒发送的最大请求数，默认为150</li>
+                <li><strong>-c, -concurrency int</strong>：并行执行的最大afrog-pocs数量，默认为25</li>
+                <li><strong>-smart</strong>：根据正在扫描的资产总数变化智能调整并发性</li>
+                <li><strong>-rrl, -reverse-rate-limit int</strong>：反向poc每秒发送的最大请求数，默认为50</li>
+                <li><strong>-rc, -reverse-concurrency int</strong>：反向poc并行执行的最大afrog-pocs数量，默认为20</li>
+            </ul>
+        </div>
+        <div class="section">
+            <h2>优化参数</h2>
+            <ul>
+                <li><strong>-retries int</strong>：失败请求重试次数，默认为1</li>
+                <li><strong>-timeout int</strong>：超时前等待的秒数，默认为10</li>
+                <li><strong>-mt</strong>：在扫描期间启用监控目标功能</li>
+                <li><strong>-mhe int</strong>：主机在被跳过扫描前的最大错误数，默认为3</li>
+                <li><strong>-mrbs int</strong>：http响应体的最大大小，默认为2</li>
+                <li><strong>-silent</strong>：仅显示结果</li>
+                <li><strong>-pedm</strong>：此监控跟踪并记录每个POC的执行时间，以识别执行时间最长的POC</li>
+                <li><strong>-vsb</strong>：一旦检测到漏洞，扫描程序将立即停止扫描并报告已识别的漏洞</li>
+                <li><strong>-cookie string</strong>：自定义全局cookie，仅适用于http(s)协议，例如：-cookie 'JSESSION=xxx;'</li>
+            </ul>
+        </div>
+        <div class="section">
+            <h2>更新参数</h2>
+            <ul>
+                <li><strong>-un, -update</strong>：将afrog引擎更新到最新发布的版本</li>
+                <li><strong>-duc, -disable-update-check</strong>：禁用自动afrog-pocs更新检查</li>
+            </ul>
+        </div>
+        <div class="section">
+            <h2>代理参数</h2>
+            <ul>
+                <li><strong>-proxy string</strong>：要使用的http/socks5代理列表，逗号分隔或文件输入</li>
+            </ul>
+        </div>
+        <div class="section">
+            <h2>版本参数</h2>
+            <ul>
+                <li><strong>-v, -version</strong>：显示afrog版本</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

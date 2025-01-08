@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>nuclei漏洞扫描器参数</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+            background-image: url('img/faaabaed-eaba-4427-8081-77e210ed4cc3.jpg'); /* Add background image */
+            background-attachment: fixed;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h1 {
+            color: #007BFF;
+            text-align: center;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .section h2 {
+            color: #007BFF;
+            border-bottom: 2px solid #007BFF;
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+        }
+        .section ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .section li {
+            background: #f9f9f9;
+            padding: 10px;
+            margin-bottom: 5px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .section li:hover {
+            background: #e9e9e9;
+        }
+        .section li strong {
+            color: #007BFF;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>nuclei漏洞扫描器参数</h1>
+        <div class="section">
+            <h2>目标参数</h2>
+            <ul>
+                <li><strong>-u, -target string[]</strong>：指定扫描的目标URL/主机（多个目标则指定多个-u参数）</li>
+                <li><strong>-l, -list string</strong>：指定包含要扫描的目标URL/主机列表的文件路径（一行一个）</li>
+                <li><strong>-resume string</strong>：使用指定的resume.cfg文件恢复扫描（将禁用请求聚类）</li>
+                <li><strong>-sa, -scan-all-ips</strong>：扫描由目标解析出来的所有IP（针对域名对应多个IP的情况）</li>
+                <li><strong>-iv, -ip-version string[]</strong>：要扫描的主机名的IP版本（4,6）-（默认为4）</li>
+            </ul>
+        </div>
+        <div class="section">
+            <h2>模板参数</h2>
+            <ul>
+                <li><strong>-nt, -new-templates</strong>：仅运行最新发布的nuclei模板</li>
+                <li><strong>-ntv, -new-templates-version string[]</strong>：仅运行特定版本中添加的新模板</li>
+                <li><strong>-as, -automatic-scan</strong>：基于Wappalyzer技术的标签映射自动扫描</li>
+                <li><strong>-t, -templates string[]</strong>：指定要运行的模板或者模板目录（以逗号分隔或目录形式）</li>
+                <li><strong>-turl, -template-url string[]</strong>：指定要运行的模板URL或模板目录URL（以逗号分隔或目录形式）</li>
+                <li><strong>-w, -workflows string[]</strong>：指定要运行的工作流或工作流目录（以逗号分隔或目录形式）</li>
+                <li><strong>-wurl, -workflow-url string[]</strong>：指定要运行的工作流URL或工作流目录URL（以逗号分隔或目录形式）</li>
+                <li><strong>-validate</strong>：使用nuclei验证模板有效性</li>
+                <li><strong>-nss, -no-strict-syntax</strong>：禁用对模板的严格检查</li>
+                <li><strong>-td, -template-display</strong>：显示模板内容</li>
+                <li><strong>-tl</strong>：列出所有可用的模板</li>
+                <li><strong>-sign</strong>：使用NUCLEI_SIGNATURE_PRIVATE_KEY环境变量中的私钥对模板进行签名</li>
+                <li><strong>-code</strong>：启用加载基于协议的代码模板</li>
+            </ul>
+        </div>
+        <div class="section">
+            <h2>过滤参数</h2>
+            <ul>
+                <li><strong>-a, -author string[]</strong>：执行指定作者的模板（逗号分隔，文件）</li>
+                <li><strong>-tags string[]</strong>：执行带指定tag的模板（逗号分隔，文件）</li>
+                <li><strong>-etags, -exclude-tags string[]</strong>：排除带指定tag的模板（逗号分隔，文件）</li>
+                <li><strong>-itags, -include-tags string[]</strong>：执行带有指定tag的模板，即使是被默认或者配置排除的模板</li>
+                <li><strong>-id, -template-id string[]</strong>：执行指定id的模板（逗号分隔，文件）</li>
+                <li><strong>-eid, -exclude-id string[]</strong>：排除指定id的模板（逗号分隔，文件）</li>
+                <li><strong>-it, -include-templates string[]</strong>：执行指定模板，即使是被默认或配置排除的模板</li>
+                <li><strong>-et, -exclude-templates string[]</strong>：排除指定模板或者模板目录（逗号分隔，文件）</li>
+                <li><strong>-em, -exclude-matchers string[]</strong>：排除指定模板matcher</li>
+                <li><strong>-s, -severity value[]</strong>：根据严重程度运行模板，可选值有：info,low,medium,high,critical</li>
+                <li><strong>-es, -exclude-severity value[]</strong>：根据严重程度排除模板，可选值有：info,low,medium,high,critical</li>
+                <li><strong>-pt, -type value[]</strong>：根据类型运行模板，可选值有：dns, file, http, headless, network, workflow, ssl, websocket, whois</li>
+                <li><strong>-ept, -exclude-type value[]</strong>：根据类型排除模板，可选值有：dns, file, http, headless, network, workflow, ssl, websocket, whois</li>
+                <li><strong>-tc, -template-condition string[]</strong>：根据表达式运行模板</li>
+            </ul>
+        </div>
+        <div class="section">
+            <h2>输出参数</h2>
+            <ul>
+                <li><strong>-o, -output string</strong>：输出发现的问题到文件</li>
+                <li><strong>-sresp, -store-resp</strong>：将nuclei的所有请求和响应输出到目录</li>
+                <li><strong>-srd, -store-resp-dir string</strong>：将nuclei的所有请求和响应输出到指定目录（默认：output）</li>
+                <li><strong>-silent</strong>：只显示结果</li>
+                <li><strong>-nc, -no-color</strong>：禁用输出内容着色（ANSI转义码）</li>
+                <li><strong>-j, -jsonl</strong>：输出格式为jsonL（ines）</li>
+                <li><strong>-irr, -include-rr</strong>：在JSON、JSONL和Markdown中输出请求/响应对（仅结果）</li>
+                <li><strong>-or, -omit-raw</strong>：在JSON、JSONL和Markdown中不输出请求/响应对</li>
+                <li><strong>-ot, -omit-template</strong>：省略JSON、JSONL输出中的编码模板</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

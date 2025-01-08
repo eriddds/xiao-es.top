@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>xray漏洞扫描器参数</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+            background-image: url('img/faaabaed-eaba-4427-8081-77e210ed4cc3.jpg'); /* Add background image */
+            background-attachment: fixed;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h1 {
+            color: #007BFF;
+            text-align: center;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .section h2 {
+            color: #007BFF;
+            border-bottom: 2px solid #007BFF;
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+        }
+        .section ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .section li {
+            background: #f9f9f9;
+            padding: 10px;
+            margin-bottom: 5px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .section li:hover {
+            background: #e9e9e9;
+        }
+        .section li strong {
+            color: #007BFF;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>xray漏洞扫描器参数</h1>
+        <div class="section">
+            <h2>webscan（ws）参数</h2>
+            <ul>
+                <li><strong>--list, -l</strong>：列出所有的插件</li>
+                <li><strong>--plugins value, --plugin value, --plug value</strong>：指定要运行的插件，多个插件用逗号分隔</li>
+                <li><strong>--poc value, -p value</strong>：指定要运行的poc，多个poc用逗号分隔</li>
+                <li><strong>--listen value</strong>：使用代理资源收集器，value是代理地址，例如：127.0.0.1:1111</li>
+                <li><strong>--basic-crawler value, --basic value</strong>：使用基本爬虫爬取目标并扫描请求</li>
+                <li><strong>--browser-crawler value, --browser value</strong>：使用浏览器爬虫爬取目标并扫描请求</li>
+                <li><strong>--url-file value, --uf value</strong>：从本地文件中读取url并扫描这些url，每行一个url</li>
+                <li><strong>--burp-file value, --bf value</strong>：从burpsuite导出的文件中读取请求作为目标</li>
+                <li><strong>--url value, -u value</strong>：扫描单个url</li>
+                <li><strong>--data value, -d value</strong>：通过POST发送的数据字符串（例如：'username=admin'）</li>
+                <li><strong>--raw-request FILE, --rr FILE</strong>：从FILE中加载http原始请求</li>
+                <li><strong>--force-ssl, --fs</strong>：强制使用SSL/HTTPS进行原始请求</li>
+                <li><strong>--json-output FILE, --jo FILE</strong>：将xray结果输出到FILE的json格式</li>
+                <li><strong>--html-output FILE, --ho FILE</strong>：将xray结果输出到FILE的HTML格式</li>
+                <li><strong>--webhook-output value, --wo value</strong>：将xray结果以json格式发布到url</li>
+            </ul>
+        </div>
+        <div class="section">
+            <h2>servicescan（ss）参数</h2>
+            <ul>
+                <li><strong>--target value</strong>：指定目标，例如：host:8009</li>
+                <li><strong>--target-file value</strong>：从本地文件加载目标，每行一个目标</li>
+                <li><strong>--json-output FILE</strong>：将xray结果输出到FILE的json格式</li>
+                <li><strong>--webhook-output value</strong>：将xray结果以json格式发布到url</li>
+                <li><strong>--html-output FILE</strong>：将xray结果输出到FILE的HTML格式</li>
+            </ul>
+        </div>
+        <div class="section">
+            <h2>subdomain（sd）参数</h2>
+            <ul>
+                <li><strong>--target value</strong>：指定要扫描的域名</li>
+            </ul>
+        </div>
+        <div class="section">
+            <h2>其他参数</h2>
+            <ul>
+                <li><strong>--config FILE</strong>：加载配置文件FILE（默认："config.yaml"）</li>
+                <li><strong>--level value</strong>：指定poc的危害等级，只使用某个级别的poc（low,medium,high,critical），需要使用多个级别时，用逗号分隔</li>
+                <li><strong>--tags value</strong>：指定运行某个标签的poc</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
