@@ -9,7 +9,6 @@
         body {
             display: flex;
             justify-content: center;
-            align-items: center;
             height: 100vh;
             margin: 0;
             background-color: #f0f0f0;
@@ -35,7 +34,8 @@
             border-radius: 8px;
             overflow: hidden;
             transition: transform 0.3s ease, opacity 1s ease;
-            opacity: 0.8;
+            opacity: 0.9;
+            max-height: 328px;
         }
         .column:hover {
             transform: translateY(-5px);
@@ -222,6 +222,112 @@
                 <p>xxxx-xx-xx</p>
             </div>
         </div>
+        <div class="column">
+            <img src="img/null.jpeg" alt="Image 1">
+            <hr />
+            <div class="content">
+                <h3><a href="###">None</a></h3>
+                <p>xxxx-xx-xx</p>
+            </div>
+        </div>
+        <div class="column">
+            <img src="img/null.jpeg" alt="Image 1">
+            <hr />
+            <div class="content">
+                <h3><a href="###">None</a></h3>
+                <p>xxxx-xx-xx</p>
+            </div>
+        </div>
+        <div class="column">
+            <img src="img/null.jpeg" alt="Image 1">
+            <hr />
+            <div class="content">
+                <h3><a href="###">None</a></h3>
+                <p>xxxx-xx-xx</p>
+            </div>
+        </div>
+        <div class="column">
+            <img src="img/null.jpeg" alt="Image 1">
+            <hr />
+            <div class="content">
+                <h3><a href="###">None</a></h3>
+                <p>xxxx-xx-xx</p>
+            </div>
+        </div>
+        <div class="column">
+            <img src="img/null.jpeg" alt="Image 1">
+            <hr />
+            <div class="content">
+                <h3><a href="###">None</a></h3>
+                <p>xxxx-xx-xx</p>
+            </div>
+        </div>
+        <div class="column">
+            <img src="img/null.jpeg" alt="Image 1">
+            <hr />
+            <div class="content">
+                <h3><a href="###">None</a></h3>
+                <p>xxxx-xx-xx</p>
+            </div>
+        </div>
+        <div class="column">
+            <img src="img/null.jpeg" alt="Image 1">
+            <hr />
+            <div class="content">
+                <h3><a href="###">None</a></h3>
+                <p>xxxx-xx-xx</p>
+            </div>
+        </div>
+        <div class="column">
+            <img src="img/null.jpeg" alt="Image 1">
+            <hr />
+            <div class="content">
+                <h3><a href="###">None</a></h3>
+                <p>xxxx-xx-xx</p>
+            </div>
+        </div>
+        <div class="column">
+            <img src="img/null.jpeg" alt="Image 1">
+            <hr />
+            <div class="content">
+                <h3><a href="###">None</a></h3>
+                <p>xxxx-xx-xx</p>
+            </div>
+        </div>
+        <div class="column">
+            <img src="img/null.jpeg" alt="Image 1">
+            <hr />
+            <div class="content">
+                <h3><a href="###">None</a></h3>
+                <p>xxxx-xx-xx</p>
+            </div>
+        </div>
+        <div class="column">
+            <img src="img/null.jpeg" alt="Image 1">
+            <hr />
+            <div class="content">
+                <h3><a href="###">None</a></h3>
+                <p>xxxx-xx-xx</p>
+            </div>
+        </div>
+        <div class="column">
+            <img src="img/null.jpeg" alt="Image 1">
+            <hr />
+            <div class="content">
+                <h3><a href="###">None</a></h3>
+                <p>xxxx-xx-xx</p>
+            </div>
+        </div>
+        <div class="column">
+            <img src="img/null.jpeg" alt="Image 1">
+            <hr />
+            <div class="content">
+                <h3><a href="###">None</a></h3>
+                <p>xxxx-xx-xx</p>
+            </div>
+        </div>
+
+        
     </div>
     <script>
         document.getElementById('searchInput').addEventListener('input', async function() {
@@ -247,7 +353,6 @@
                 await Promise.all(chunk.map(column => {
                     return new Promise(resolve => {
                         setTimeout(() => {
-                            column.style.opacity = '1';
                             resolve();
                         }, 100); // 每个栏目加载的延迟时间
                     });
