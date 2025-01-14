@@ -17,6 +17,7 @@
     background-image: url('img/background_one.jpg'); /* Add background image */
     background-size: cover; /* Cover the entire page with background image */
     background-position: center; /* Center the background image */
+    background-attachment: fixed;
   }
   .typewriter {
     overflow: hidden;
@@ -157,6 +158,19 @@
   }
   .toggle-button:hover {
   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+  }
+  @media (max-width: 768px) {
+    .greeting {
+      display: none;
+    }
+    .image-container {
+      margin-left: 50px;
+    }
+    .button {
+      display: block;
+      width: 100%;
+      margin: 10px 0;
+    }
   }
 </style>
 </head>
