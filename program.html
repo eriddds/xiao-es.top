@@ -111,7 +111,8 @@
 </head>
 <body>
   <h1 id="one">我的项目 #1</h1><hr size="10px" color="black" />
-  <ul>
+  <input type="text" id="searchBox" placeholder="搜索项目..." style="position: fixed; top: 20px; left: 20px; padding: 10px; border-radius: 5px; border: 1px solid #ccc;">
+  <ul id="projectList">
     <!--
     Format:
     <li class="project-item">
@@ -150,18 +151,18 @@
         <h3><a href="sent.html">渗透测试目标场</a></h3>
         <p>作者: ES</p>
         <p>发布时间: 2024/11/29</p>
-        <p>编程语言: </p>
+        <p>编程语言: HTML/PHP</p>
         <p>介绍: 网络安全渗透测试的目标场，直接下载并使用。</p>
       </div>
     </li>
     <li class="project-item">
-      <img src="img/making.jpeg" alt="Project 2">
+      <img src="img/404748045-b900d723-6ffa-4bc5-ae77-f87a229db79e.png" alt="Project 2">
       <div class="project-info">
-        <h3>正在开发中...</h3>
+        <h3><a href="https://eriddds.github.io/Web-Easy-Scanner/">Web Easy Scanner</a></h3>
         <p>作者: ES</p>
-        <p>发布时间: </p>
-        <p>编程语言: </p>
-        <p>介绍: 这是一个正在开发的项目。</p>
+        <p>发布时间: 2025/01/20</p>
+        <p>编程语言: Python</p>
+        <p>介绍: 这是一款漏洞扫描工具，使用python语言编写，可以进行扫描端口,漏洞等等</p>
       </div>
     </li>
     <li class="project-item">
@@ -175,15 +176,25 @@
       </div>
     </li>
   </ul>
-  <div id="en">
-    <ul class="pagination">
-      <li><a href="#">«</a></li>
-      <li><a class="active" href="#">1</a></li>
-      <li><a href="#">»</a></li>
-    </ul>
-  </div>
-
   <button class="button" style="position: fixed; top: 20px; right: 20px;" onclick="window.location.href='Enprogram.html'"><span>English</span></button>
 
+  <script>
+    document.getElementById('searchBox').addEventListener('input', function() {
+      const searchValue = this.value.toLowerCase();
+      const projectItems = document.querySelectorAll('.project-item');
+
+      projectItems.forEach(item => {
+        const title = item.querySelector('a').textContent.toLowerCase();
+        const author = item.querySelector('p').textContent.toLowerCase();
+        const description = item.querySelector('.project-info p:last-child').textContent.toLowerCase();
+
+        if (title.includes(searchValue) || author.includes(searchValue) || description.includes(searchValue)) {
+          item.style.display = '';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    });
+  </script>
 </body>
 </html>
